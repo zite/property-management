@@ -1,0 +1,36 @@
+name: Feature request
+description: Suggest something this template should do.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a template people fork and change, so the bar is a little different
+        from a product: the best requests are things **most** installs would want,
+        or that are awkward to add yourself.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: The situation, not the solution. What does the current design make hard?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: Optional. If you have a shape in mind, describe it.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Does this belong in the template, or in your fork?
+      description: An honest answer here helps a lot. Plenty of good ideas are fork-shaped.
+      options:
+        - Most installs would want this
+        - Common enough to be worth an option
+        - Probably just mine, but it needs a hook that does not exist yet
+    validations:
+      required: true

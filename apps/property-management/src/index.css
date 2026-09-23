@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* A quiet, cool canvas; content panels are the brightest surface. */
+    --canvas: 220 12% 96.2%;
+    --background: 0 0% 100%;
+    --foreground: 222 14% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 14% 10%;
+    --muted: 220 12% 95.5%;
+    /* 5.5:1 on white — secondary text stays readable, not decorative. */
+    --muted-foreground: 220 6% 42%;
+    /* Tertiary text for timestamps and counts: 4.8:1 on white. */
+    --faint: 220 5% 46%;
+    --subtle: 220 14% 97.6%;
+    --border: 220 10% 90.5%;
+    /* A form control's border is often the only thing marking the control, so it carries 3:1. */
+    --input: 220 6% 63%;
+    /* Verdigris: 5.4:1 against white text. */
+    --primary: 173 80% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 12% 94.5%;
+    --secondary-foreground: 222 14% 13%;
+    --accent: 220 12% 94.6%;
+    --accent-foreground: 222 14% 10%;
+    --destructive: 356 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 173 80% 30%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 12% 96.2%;
+    --sidebar-foreground: 220 6% 33%;
+    --sidebar-primary: 173 80% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 11% 91%;
+    --sidebar-accent-foreground: 222 14% 10%;
+    --sidebar-border: 220 10% 89.5%;
+    --sidebar-ring: 173 80% 30%;
+
+    --chart-1: 173 70% 32%;
+    --chart-2: 221 83% 58%;
+    --chart-3: 32 95% 50%;
+    --chart-4: 262 70% 60%;
+    --chart-5: 340 75% 58%;
+
+    /* Semantic tones as RGB channels, each >= 4.5:1 against white. */
+    --tone-warning: 180 83 9;
+    --tone-info: 3 105 161;
+    --tone-success: 21 128 61;
+    --tone-danger: 200 30 50;
+    --tone-accent: 13 119 107;
+    --tone-neutral: 100 105 116;
+
+    --shadow-2xs: 0 1px 0 rgb(0 0 0 / 0.03);
+    --shadow-xs: 0 1px 2px rgb(14 18 26 / 0.05);
+    --shadow-sm: 0 1px 2px rgb(14 18 26 / 0.06), 0 1px 1px rgb(14 18 26 / 0.03);
+    --shadow: 0 2px 4px rgb(14 18 26 / 0.06), 0 1px 2px rgb(14 18 26 / 0.04);
+    --shadow-md: 0 4px 12px rgb(14 18 26 / 0.08), 0 1px 3px rgb(14 18 26 / 0.05);
+    --shadow-lg: 0 12px 32px rgb(14 18 26 / 0.12), 0 2px 6px rgb(14 18 26 / 0.06);
+    --shadow-xl: 0 24px 56px rgb(14 18 26 / 0.16), 0 4px 12px rgb(14 18 26 / 0.08);
+    --shadow-2xl: 0 32px 80px rgb(14 18 26 / 0.22);
+
+    --grid-line: 220 10% 92%;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .dark {
+    --canvas: 220 9% 5.5%;
+    --background: 220 8% 8.2%;
+    --foreground: 220 10% 93%;
+    --card: 220 8% 9.5%;
+    --card-foreground: 220 10% 93%;
+    --popover: 220 8% 10.5%;
+    --popover-foreground: 220 10% 93%;
+    --muted: 220 8% 13%;
+    --muted-foreground: 220 6% 64%;
+    --faint: 220 5% 56%;
+    --subtle: 220 8% 9.8%;
+    --border: 220 7% 15.5%;
+    --input: 220 6% 34%;
+    --primary: 166 58% 56%;
+    --primary-foreground: 220 10% 6%;
+    --secondary: 220 8% 14%;
+    --secondary-foreground: 220 10% 92%;
+    --accent: 220 8% 14.5%;
+    --accent-foreground: 220 10% 95%;
+    --destructive: 356 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 166 58% 56%;
+
+    --sidebar-background: 220 9% 5.5%;
+    --sidebar-foreground: 220 6% 66%;
+    --sidebar-primary: 166 58% 56%;
+    --sidebar-primary-foreground: 220 10% 6%;
+    --sidebar-accent: 220 8% 12.5%;
+    --sidebar-accent-foreground: 220 10% 95%;
+    --sidebar-border: 220 7% 12%;
+    --sidebar-ring: 166 58% 56%;
+
+    --chart-1: 166 55% 50%;
+    --chart-2: 217 85% 65%;
+    --chart-3: 35 92% 58%;
+    --chart-4: 262 75% 72%;
+    --chart-5: 340 75% 66%;
+
+    /* Re-stepped for the dark surface, not flipped: all >= 7:1 on it. */
+    --tone-warning: 251 191 36;
+    --tone-info: 56 189 248;
+    --tone-success: 74 222 128;
+    --tone-danger: 251 113 133;
+    --tone-accent: 94 214 186;
+    --tone-neutral: 161 166 178;
+
+    --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.45);
+    --shadow: 0 2px 6px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 6px 16px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.03);
+    --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.04);
+    --shadow-xl: 0 24px 64px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.05);
+    --shadow-2xl: 0 32px 90px rgb(0 0 0 / 0.7);
+
+    --grid-line: 220 7% 15%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-canvas text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv01', 'cv02', 'cv03', 'cv04', 'cv11', 'ss03';
+    overscroll-behavior: none;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring) / 0.55);
+    outline-offset: 1px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.22);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+    background-clip: content-box;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .kbd {
+    @apply inline-flex h-[20px] min-w-[20px] items-center justify-center rounded-[4px] border px-1 font-sans text-[11.5px] font-medium leading-none;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    border-color: hsl(var(--border));
+    box-shadow: 0 1px 0 hsl(var(--border));
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, hsl(var(--muted)) 0%, hsl(var(--accent)) 50%, hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded;
+  }
+
+  /* A compact, borderless control that reveals itself on hover — property chips, inline pickers. */
+  .ghost-chip {
+    @apply inline-flex h-8 max-w-full items-center gap-1.5 rounded-md border border-transparent px-2 text-[14px] text-foreground transition-colors;
+  }
+  .ghost-chip:hover,
+  .ghost-chip[data-state='open'] {
+    @apply bg-accent;
+  }
+
+  .chip {
+    @apply inline-flex h-7 max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 text-xs text-foreground transition-colors;
+  }
+
+  .chip-soft {
+    @apply inline-flex max-w-full items-center rounded-md bg-muted px-2 py-0.5 text-[14px] leading-5 text-foreground;
+  }
+
+  /* Numbers that line up in columns. */
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum', 'cv01', 'cv11';
+  }
+
+  /* A standard text field, sized to the 14px UI. */
+  .field {
+    @apply flex h-9 w-full rounded-md border border-input/70 bg-background px-2.5 text-[14px] shadow-2xs outline-none transition-colors placeholder:text-muted-foreground/80 hover:border-input focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  textarea.field {
+    @apply h-auto min-h-[84px] py-2 leading-relaxed;
+  }
+
+  .md-compact :where(p) {
+    margin: 0;
+  }
+  .md-compact :where(p + p) {
+    margin-top: 0.5em;
+  }
+  .md-compact :where(ul, ol) {
+    margin: 0.35em 0 0;
+    padding-left: 1.2em;
+  }
+  .md-compact :where(ul) {
+    list-style: disc;
+  }
+  .md-compact :where(ol) {
+    list-style: decimal;
+  }
+
+  .prose-ks {
+    @apply prose prose-sm max-w-none dark:prose-invert;
+    --tw-prose-body: hsl(var(--foreground));
+    --tw-prose-headings: hsl(var(--foreground));
+    --tw-prose-bold: hsl(var(--foreground));
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-quotes: hsl(var(--muted-foreground));
+    --tw-prose-quote-borders: hsl(var(--border));
+    --tw-prose-bullets: hsl(var(--muted-foreground));
+    --tw-prose-counters: hsl(var(--muted-foreground));
+    --tw-prose-hr: hsl(var(--border));
+    --tw-prose-invert-body: hsl(var(--foreground));
+    --tw-prose-invert-headings: hsl(var(--foreground));
+    --tw-prose-invert-bold: hsl(var(--foreground));
+    --tw-prose-invert-links: hsl(var(--primary));
+    --tw-prose-invert-quotes: hsl(var(--muted-foreground));
+    --tw-prose-invert-quote-borders: hsl(var(--border));
+    --tw-prose-invert-bullets: hsl(var(--muted-foreground));
+    --tw-prose-invert-counters: hsl(var(--muted-foreground));
+    --tw-prose-invert-hr: hsl(var(--border));
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .prose-ks :where(p) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  .prose-ks :where(h1, h2, h3) {
+    margin-top: 1.1em;
+    margin-bottom: 0.45em;
+    letter-spacing: -0.01em;
+  }
+  .prose-ks :where(h1) {
+    font-size: 1.35em;
+  }
+  .prose-ks :where(h2) {
+    font-size: 1.1em;
+  }
+  .prose-ks :where(h3) {
+    font-size: 1em;
+  }
+  .prose-ks :where(> :first-child) {
+    margin-top: 0;
+  }
+  .prose-ks :where(> :last-child) {
+    margin-bottom: 0;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * shadcn's overlay is black/80 — far heavier than a work tool's dialogs should feel.
+ * Outside @layer on purpose: inside a Tailwind layer these compound selectors get variant-expanded into broken rules.
+ */
+div[data-state].fixed.inset-0.z-50[class*='bg-black'] {
+  background-color: hsl(222 14% 6% / 0.32);
+  backdrop-filter: blur(1.5px);
+}
+.dark div[data-state].fixed.inset-0.z-50[class*='bg-black'] {
+  background-color: hsl(222 14% 2% / 0.55);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

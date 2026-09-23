@@ -1,0 +1,9 @@
+{
+  "accessMode": "internal",
+  "integrations": {
+    "email-1": {
+      "type": "email",
+      "provider": "zite_email"
+    }
+  }
+}

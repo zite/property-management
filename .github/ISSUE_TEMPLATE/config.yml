@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Zite platform docs
+    url: https://developers.zite.com
+    about: How the database, endpoints, sandboxes and publishing work.
+  - name: Zite platform support
+    url: https://zite.com
+    about: Problems with a workspace, auth, hosting or billing, rather than with this template.
+  - name: Security vulnerability
+    url: https://github.com/zite/property-management/security/advisories/new
+    about: Report privately. Please do not open a public issue.

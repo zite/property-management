@@ -1,0 +1,7012 @@
+{
+  "tables": [
+    {
+      "id": "t91hdGm6zys",
+      "sdkName": "settings",
+      "name": "Settings",
+      "primaryFieldId": "f5jzepjNKsK",
+      "fields": [
+        {
+          "id": "f5jzepjNKsK",
+          "sdkName": "organizationName",
+          "definition": {
+            "name": "Organization Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fgkpWkQ4pXV",
+          "sdkName": "legalName",
+          "definition": {
+            "name": "Legal Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8QE9CNmWJP",
+          "sdkName": "logoUrl",
+          "definition": {
+            "name": "Logo Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fviSVdaXEDF",
+          "sdkName": "address",
+          "definition": {
+            "name": "Address",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fk2qBGzkMs6",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feM5EMypfdF",
+          "sdkName": "supportEmail",
+          "definition": {
+            "name": "Support Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "f67QEuC63xb",
+          "sdkName": "websiteUrl",
+          "definition": {
+            "name": "Website Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuu682gjG6Y",
+          "sdkName": "emergencyPhone",
+          "definition": {
+            "name": "Emergency Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjFDPQwZJsH",
+          "sdkName": "officeHours",
+          "definition": {
+            "name": "Office Hours",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxg27pCH1ED",
+          "sdkName": "currency",
+          "definition": {
+            "name": "Currency",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2vZqTycq2J",
+          "sdkName": "timezone",
+          "definition": {
+            "name": "Timezone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4CuwD11WsX",
+          "sdkName": "brandColor",
+          "definition": {
+            "name": "Brand Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fs4sUV2Yo71",
+          "sdkName": "rentDueDay",
+          "definition": {
+            "name": "Rent Due Day",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fitHZCj9adB",
+          "sdkName": "gracePeriodDays",
+          "definition": {
+            "name": "Grace Period Days",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "f8BirmWLNPo",
+          "sdkName": "lateFeeType",
+          "definition": {
+            "name": "Late Fee Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "fpeE",
+                  "label": "None",
+                  "color": "purple"
+                },
+                {
+                  "value": "ogjy",
+                  "label": "Flat",
+                  "color": "orange"
+                },
+                {
+                  "value": "tGaU",
+                  "label": "Percent",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ftWqyVZCi6s",
+          "sdkName": "lateFeeAmount",
+          "definition": {
+            "name": "Late Fee Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fgbUeDaccD2",
+          "sdkName": "lateFeePercent",
+          "definition": {
+            "name": "Late Fee Percent",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2
+            }
+          }
+        },
+        {
+          "id": "f7cSXqq3DsG",
+          "sdkName": "lateFeeMax",
+          "definition": {
+            "name": "Late Fee Max",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "favkYyhxThm",
+          "sdkName": "chargeDaysAhead",
+          "definition": {
+            "name": "Charge Days Ahead",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fdUPMnPvp16",
+          "sdkName": "rentReminderDays",
+          "definition": {
+            "name": "Rent Reminder Days",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fbskZCkqWQG",
+          "sdkName": "renewalNoticeDays",
+          "definition": {
+            "name": "Renewal Notice Days",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "f5qY9Awfudy",
+          "sdkName": "managementFeePercent",
+          "definition": {
+            "name": "Management Fee Percent",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2
+            }
+          }
+        },
+        {
+          "id": "f46nCDBSWQn",
+          "sdkName": "ownerApprovalThreshold",
+          "definition": {
+            "name": "Owner Approval Threshold",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fdf4oDawCGp",
+          "sdkName": "applicationFee",
+          "definition": {
+            "name": "Application Fee",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fhEs4pB6dbL",
+          "sdkName": "incomeMultiple",
+          "definition": {
+            "name": "Income Multiple",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fxo1AxtYqLE",
+          "sdkName": "portalHeadline",
+          "definition": {
+            "name": "Portal Headline",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4p5PGpSwkL",
+          "sdkName": "portalIntro",
+          "definition": {
+            "name": "Portal Intro",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faHELsuXgor",
+          "sdkName": "paymentInstructions",
+          "definition": {
+            "name": "Payment Instructions",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffTcH21Cm9C",
+          "sdkName": "onlinePayments",
+          "definition": {
+            "name": "Online Payments",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdya4a2w2Ze",
+          "sdkName": "allowPartialPayments",
+          "definition": {
+            "name": "Allow Partial Payments",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjtA1FdQeVg",
+          "sdkName": "maintenanceRequests",
+          "definition": {
+            "name": "Maintenance Requests",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqLQy6q6Yy5",
+          "sdkName": "applicationsOpen",
+          "definition": {
+            "name": "Applications Open",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7JUcU1eumG",
+          "sdkName": "emailSignature",
+          "definition": {
+            "name": "Email Signature",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2Z1E2gWYe8",
+          "sdkName": "leaseTemplate",
+          "definition": {
+            "name": "Lease Template",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frrYvzJZdNR",
+          "sdkName": "defaultRole",
+          "definition": {
+            "name": "Default Role",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "n5pG",
+                  "label": "Property Manager",
+                  "color": "purple"
+                },
+                {
+                  "value": "vcVU",
+                  "label": "Leasing Agent",
+                  "color": "orange"
+                },
+                {
+                  "value": "94kN",
+                  "label": "Maintenance",
+                  "color": "blue"
+                },
+                {
+                  "value": "7QwG",
+                  "label": "Accountant",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fw9XmxooMVh",
+          "sdkName": "portalUrl",
+          "definition": {
+            "name": "Portal Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjHcBPwsCQ7",
+          "sdkName": "staffAppUrl",
+          "definition": {
+            "name": "Staff App Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmMD6RQE2mG",
+          "sdkName": "seededAt",
+          "definition": {
+            "name": "Seeded At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f3gKGDALfX2",
+          "sdkName": "automationRanAt",
+          "definition": {
+            "name": "Automation Ran At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f5oNNBoVYk8",
+          "sdkName": "automationSummary",
+          "definition": {
+            "name": "Automation Summary",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fa3p1r6FA4M",
+          "sdkName": "seedStatus",
+          "definition": {
+            "name": "Seed Status",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tc1g7gguU1z",
+      "sdkName": "members",
+      "name": "Members",
+      "primaryFieldId": "fdYe2VgBsRQ",
+      "fields": [
+        {
+          "id": "fdYe2VgBsRQ",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiZTJ6t9cSr",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fn1YpfVyG8c",
+          "sdkName": "role",
+          "definition": {
+            "name": "Role",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "1uc9",
+                  "label": "Admin",
+                  "color": "purple"
+                },
+                {
+                  "value": "h8Ed",
+                  "label": "Property Manager",
+                  "color": "orange"
+                },
+                {
+                  "value": "2Rq1",
+                  "label": "Leasing Agent",
+                  "color": "blue"
+                },
+                {
+                  "value": "3KnE",
+                  "label": "Maintenance",
+                  "color": "gray"
+                },
+                {
+                  "value": "shjx",
+                  "label": "Accountant",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f7ehRoki4wD",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "jA37",
+                  "label": "Active",
+                  "color": "purple"
+                },
+                {
+                  "value": "2xvz",
+                  "label": "Invited",
+                  "color": "orange"
+                },
+                {
+                  "value": "hv9e",
+                  "label": "Deactivated",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f38QspB1aVv",
+          "sdkName": "color",
+          "definition": {
+            "name": "Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2r8PXLLGkt",
+          "sdkName": "avatarUrl",
+          "definition": {
+            "name": "Avatar Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffF4jPJnwFr",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frEXHc9akYj",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwAVXYeHY2s",
+          "sdkName": "invitedAt",
+          "definition": {
+            "name": "Invited At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fmk2Crk2P2c",
+          "sdkName": "lastSeenAt",
+          "definition": {
+            "name": "Last Seen At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tfGtNMC1nsx",
+      "sdkName": "owners",
+      "name": "Owners",
+      "primaryFieldId": "fxi5reWj7AT",
+      "fields": [
+        {
+          "id": "fxi5reWj7AT",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbb8ARt4Mq1",
+          "sdkName": "ownerType",
+          "definition": {
+            "name": "Owner Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "qjtZ",
+                  "label": "Individual",
+                  "color": "purple"
+                },
+                {
+                  "value": "88LC",
+                  "label": "Company",
+                  "color": "orange"
+                },
+                {
+                  "value": "7nnw",
+                  "label": "Trust",
+                  "color": "blue"
+                },
+                {
+                  "value": "h6T3",
+                  "label": "Partnership",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fpsXwynvw19",
+          "sdkName": "contactName",
+          "definition": {
+            "name": "Contact Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fprRLPnxbF8",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbtoALy4RH7",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpAJs1Mf3fp",
+          "sdkName": "mailingAddress",
+          "definition": {
+            "name": "Mailing Address",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6Zcgnj3TWh",
+          "sdkName": "taxIdLast4",
+          "definition": {
+            "name": "Tax Id Last4",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsnbcSjziti",
+          "sdkName": "managementFeePercent",
+          "definition": {
+            "name": "Management Fee Percent",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2
+            }
+          }
+        },
+        {
+          "id": "f5ikW8CdiHE",
+          "sdkName": "distributionMethod",
+          "definition": {
+            "name": "Distribution Method",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "2v8m",
+                  "label": "ACH",
+                  "color": "purple"
+                },
+                {
+                  "value": "4gMJ",
+                  "label": "Check",
+                  "color": "orange"
+                },
+                {
+                  "value": "dZVS",
+                  "label": "Hold",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fgJCb8c3UgG",
+          "sdkName": "portalEnabled",
+          "definition": {
+            "name": "Portal Enabled",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuJKHDDgeYt",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "hanP",
+                  "label": "Active",
+                  "color": "purple"
+                },
+                {
+                  "value": "q2q1",
+                  "label": "Archived",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fiTJXhaLaAz",
+          "sdkName": "color",
+          "definition": {
+            "name": "Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhhSaFtwFx7",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "te13qfhRiff",
+      "sdkName": "properties",
+      "name": "Properties",
+      "primaryFieldId": "fde4p5i9iUm",
+      "fields": [
+        {
+          "id": "fde4p5i9iUm",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiCmsmK4qEn",
+          "sdkName": "code",
+          "definition": {
+            "name": "Code",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmKbDz4n3s1",
+          "sdkName": "propertyType",
+          "definition": {
+            "name": "Property Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "tUJ6",
+                  "label": "Single-family",
+                  "color": "purple"
+                },
+                {
+                  "value": "c8P7",
+                  "label": "Multifamily",
+                  "color": "orange"
+                },
+                {
+                  "value": "oqDy",
+                  "label": "Condo",
+                  "color": "blue"
+                },
+                {
+                  "value": "2yod",
+                  "label": "Townhome",
+                  "color": "gray"
+                },
+                {
+                  "value": "mhnG",
+                  "label": "Commercial",
+                  "color": "red"
+                },
+                {
+                  "value": "gZBf",
+                  "label": "Mixed-use",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fgXaL1iqJTf",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "8kvL",
+                  "label": "Active",
+                  "color": "purple"
+                },
+                {
+                  "value": "bxgh",
+                  "label": "Inactive",
+                  "color": "orange"
+                },
+                {
+                  "value": "24YD",
+                  "label": "Archived",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f5N4HQ8j8Z8",
+          "sdkName": "street",
+          "definition": {
+            "name": "Street",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwuGE7SUg6X",
+          "sdkName": "city",
+          "definition": {
+            "name": "City",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpuV4nYDLwL",
+          "sdkName": "state",
+          "definition": {
+            "name": "State",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2wisWfuyt1",
+          "sdkName": "postalCode",
+          "definition": {
+            "name": "Postal Code",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2eMnwRLHqs",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4NLqoQ3dA7",
+          "sdkName": "managerId",
+          "definition": {
+            "name": "Manager Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuwygvM3YDv",
+          "sdkName": "bankAccountId",
+          "definition": {
+            "name": "Bank Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpX2y1986MW",
+          "sdkName": "yearBuilt",
+          "definition": {
+            "name": "Year Built",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fd77zTjDBBZ",
+          "sdkName": "photoUrl",
+          "definition": {
+            "name": "Photo Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fejDU8rnHhE",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f91A2sscYJu",
+          "sdkName": "amenities",
+          "definition": {
+            "name": "Amenities",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjCPfbntcMB",
+          "sdkName": "managementFeePercent",
+          "definition": {
+            "name": "Management Fee Percent",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2
+            }
+          }
+        },
+        {
+          "id": "f94mLxrTQM5",
+          "sdkName": "reserveAmount",
+          "definition": {
+            "name": "Reserve Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fmt4DoXdkYS",
+          "sdkName": "petPolicy",
+          "definition": {
+            "name": "Pet Policy",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftevWwBBt5Y",
+          "sdkName": "parking",
+          "definition": {
+            "name": "Parking",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffMYq3NWD8P",
+          "sdkName": "acquiredOn",
+          "definition": {
+            "name": "Acquired On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f7yRTiD57mA",
+          "sdkName": "color",
+          "definition": {
+            "name": "Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiWctNbpeTC",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "t2x4Ss5tj3g",
+      "sdkName": "units",
+      "name": "Units",
+      "primaryFieldId": "f9u8uEcNUGL",
+      "fields": [
+        {
+          "id": "f9u8uEcNUGL",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdGNW6w2NDi",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhgQVSvsMW1",
+          "sdkName": "beds",
+          "definition": {
+            "name": "Beds",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fffPKX4TV5J",
+          "sdkName": "baths",
+          "definition": {
+            "name": "Baths",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fqzdDy6RdDa",
+          "sdkName": "squareFeet",
+          "definition": {
+            "name": "Square Feet",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "f9hBCH9t3af",
+          "sdkName": "marketRent",
+          "definition": {
+            "name": "Market Rent",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f4CRh4Bksxm",
+          "sdkName": "depositAmount",
+          "definition": {
+            "name": "Deposit Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fcxH1gEv9CW",
+          "sdkName": "readiness",
+          "definition": {
+            "name": "Readiness",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "hcHH",
+                  "label": "Ready",
+                  "color": "purple"
+                },
+                {
+                  "value": "p8Y6",
+                  "label": "Make ready",
+                  "color": "orange"
+                },
+                {
+                  "value": "9YwD",
+                  "label": "Down",
+                  "color": "blue"
+                },
+                {
+                  "value": "hVjD",
+                  "label": "Off market",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ft8Exqw7tiM",
+          "sdkName": "floor",
+          "definition": {
+            "name": "Floor",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuWNLiXpKFy",
+          "sdkName": "unitType",
+          "definition": {
+            "name": "Unit Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftNa1gV413L",
+          "sdkName": "features",
+          "definition": {
+            "name": "Features",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "focBgZzeP1S",
+          "sdkName": "photoUrls",
+          "definition": {
+            "name": "Photo Urls",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftUF6oWWucN",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkRdyUKvg7F",
+          "sdkName": "availableOn",
+          "definition": {
+            "name": "Available On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fgxF2oNourW",
+          "sdkName": "archived",
+          "definition": {
+            "name": "Archived",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdZHzjhC171",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tj464rVHwbb",
+      "sdkName": "tenants",
+      "name": "Tenants",
+      "primaryFieldId": "f9f6dus9J6P",
+      "fields": [
+        {
+          "id": "f9f6dus9J6P",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsXxZo21zYA",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "frkbKrLFPwE",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcP1FfeUqoE",
+          "sdkName": "altPhone",
+          "definition": {
+            "name": "Alt Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8QUodU3Gou",
+          "sdkName": "company",
+          "definition": {
+            "name": "Company",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqNQHx665hQ",
+          "sdkName": "emergencyContact",
+          "definition": {
+            "name": "Emergency Contact",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1a1CoozYE9",
+          "sdkName": "emergencyPhone",
+          "definition": {
+            "name": "Emergency Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9rzkgMf2Wr",
+          "sdkName": "vehicles",
+          "definition": {
+            "name": "Vehicles",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftRFfzcsaGi",
+          "sdkName": "pets",
+          "definition": {
+            "name": "Pets",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2e8rK54Bi1",
+          "sdkName": "color",
+          "definition": {
+            "name": "Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2gqcjycsqi",
+          "sdkName": "portalInvitedAt",
+          "definition": {
+            "name": "Portal Invited At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fvJ39D75YQv",
+          "sdkName": "portalSeenAt",
+          "definition": {
+            "name": "Portal Seen At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fddEXxSPC9m",
+          "sdkName": "archived",
+          "definition": {
+            "name": "Archived",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f22qLhJar7b",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "trVuMxP8r58",
+      "sdkName": "leases",
+      "name": "Leases",
+      "primaryFieldId": "furrAAgT83W",
+      "fields": [
+        {
+          "id": "furrAAgT83W",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftDgM1TNVyT",
+          "sdkName": "number",
+          "definition": {
+            "name": "Number",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fhkjrUmeer6",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f44qMeVKm4h",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxs8B1NRBvT",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "fPQL",
+                  "label": "Draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "pMdS",
+                  "label": "Pending signature",
+                  "color": "orange"
+                },
+                {
+                  "value": "86tZ",
+                  "label": "Active",
+                  "color": "blue"
+                },
+                {
+                  "value": "tbAY",
+                  "label": "Ended",
+                  "color": "gray"
+                },
+                {
+                  "value": "cQaq",
+                  "label": "Canceled",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fuQxfUHxX17",
+          "sdkName": "leaseType",
+          "definition": {
+            "name": "Lease Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "uN1j",
+                  "label": "Fixed term",
+                  "color": "purple"
+                },
+                {
+                  "value": "aFp1",
+                  "label": "Month-to-month",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fxwpgKDMWg6",
+          "sdkName": "startDate",
+          "definition": {
+            "name": "Start Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f4B4HZ3HSJQ",
+          "sdkName": "endDate",
+          "definition": {
+            "name": "End Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fi6xcyrJrMN",
+          "sdkName": "moveInDate",
+          "definition": {
+            "name": "Move In Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fptiSmS4uXV",
+          "sdkName": "moveOutDate",
+          "definition": {
+            "name": "Move Out Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fbjy2nPWDAx",
+          "sdkName": "noticeGivenOn",
+          "definition": {
+            "name": "Notice Given On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fkZuFHy8fAU",
+          "sdkName": "rent",
+          "definition": {
+            "name": "Rent",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fxukLUMzENh",
+          "sdkName": "deposit",
+          "definition": {
+            "name": "Deposit",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fgBtjobQaKA",
+          "sdkName": "rentDueDay",
+          "definition": {
+            "name": "Rent Due Day",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fsfkunAJVVG",
+          "sdkName": "lateFeeExempt",
+          "definition": {
+            "name": "Late Fee Exempt",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f26gKyTBVuB",
+          "sdkName": "renewalStatus",
+          "definition": {
+            "name": "Renewal Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "ggGK",
+                  "label": "None",
+                  "color": "purple"
+                },
+                {
+                  "value": "vmFL",
+                  "label": "Offered",
+                  "color": "orange"
+                },
+                {
+                  "value": "171M",
+                  "label": "Accepted",
+                  "color": "blue"
+                },
+                {
+                  "value": "pHZ8",
+                  "label": "Declined",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f4Q5euHQkEV",
+          "sdkName": "renewalRent",
+          "definition": {
+            "name": "Renewal Rent",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fxeV7xYc3KX",
+          "sdkName": "renewalTermMonths",
+          "definition": {
+            "name": "Renewal Term Months",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fovFp8x9Df1",
+          "sdkName": "renewalOfferedAt",
+          "definition": {
+            "name": "Renewal Offered At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fpoJBYpnLTg",
+          "sdkName": "renewalExpiresOn",
+          "definition": {
+            "name": "Renewal Expires On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fwQWhvQH156",
+          "sdkName": "renewalRespondedAt",
+          "definition": {
+            "name": "Renewal Responded At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fi4kUctv4tP",
+          "sdkName": "renewalLeaseId",
+          "definition": {
+            "name": "Renewal Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5pijU8N1Wk",
+          "sdkName": "previousLeaseId",
+          "definition": {
+            "name": "Previous Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkDoxqfCmtp",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7ZfS7GPEa1",
+          "sdkName": "terms",
+          "definition": {
+            "name": "Terms",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5FqS365GfR",
+          "sdkName": "sentForSignatureAt",
+          "definition": {
+            "name": "Sent For Signature At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fi6wq45JLuX",
+          "sdkName": "signatures",
+          "definition": {
+            "name": "Signatures",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcavSDExedR",
+          "sdkName": "signedAt",
+          "definition": {
+            "name": "Signed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fqpcrQsAgwS",
+          "sdkName": "countersignedAt",
+          "definition": {
+            "name": "Countersigned At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "foSo5321Td3",
+          "sdkName": "countersignedById",
+          "definition": {
+            "name": "Countersigned By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8vrNTXGm5F",
+          "sdkName": "documentUrl",
+          "definition": {
+            "name": "Document Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcwsQNhpJPK",
+          "sdkName": "moveOutReason",
+          "definition": {
+            "name": "Move Out Reason",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5aNeYNaXfr",
+          "sdkName": "forwardingAddress",
+          "definition": {
+            "name": "Forwarding Address",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frgdg6dJV7H",
+          "sdkName": "depositSettledAt",
+          "definition": {
+            "name": "Deposit Settled At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f6yxQJ2zgYq",
+          "sdkName": "createdById",
+          "definition": {
+            "name": "Created By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvBeyKLRbPA",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tj6yA2hqGDG",
+      "sdkName": "leaseTenants",
+      "name": "Lease Tenants",
+      "primaryFieldId": "fqo1xEN37u8",
+      "fields": [
+        {
+          "id": "fqo1xEN37u8",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftrCzgayE58",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbW5FsGGRYP",
+          "sdkName": "role",
+          "definition": {
+            "name": "Role",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "cC3s",
+                  "label": "Primary",
+                  "color": "purple"
+                },
+                {
+                  "value": "qybS",
+                  "label": "Co-tenant",
+                  "color": "orange"
+                },
+                {
+                  "value": "9Mmb",
+                  "label": "Occupant",
+                  "color": "blue"
+                },
+                {
+                  "value": "eoAY",
+                  "label": "Guarantor",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fauzrP4Sbsg",
+          "sdkName": "signedAt",
+          "definition": {
+            "name": "Signed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tcyJ9dgagQg",
+      "sdkName": "recurringCharges",
+      "name": "Recurring Charges",
+      "primaryFieldId": "f3GRhXHjuvk",
+      "fields": [
+        {
+          "id": "f3GRhXHjuvk",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fi7SZ22ZBrx",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2sVENhsPzR",
+          "sdkName": "accountId",
+          "definition": {
+            "name": "Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ff9nq1pLUVY",
+          "sdkName": "amount",
+          "definition": {
+            "name": "Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fx34uqdLjDw",
+          "sdkName": "frequency",
+          "definition": {
+            "name": "Frequency",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "1Hyp",
+                  "label": "Monthly",
+                  "color": "purple"
+                },
+                {
+                  "value": "jnUL",
+                  "label": "Quarterly",
+                  "color": "orange"
+                },
+                {
+                  "value": "2Sa7",
+                  "label": "Annually",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fbADuh4JCaa",
+          "sdkName": "dayOfMonth",
+          "definition": {
+            "name": "Day Of Month",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fdfeFzVtVgj",
+          "sdkName": "startDate",
+          "definition": {
+            "name": "Start Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fqag5ESe2sE",
+          "sdkName": "endDate",
+          "definition": {
+            "name": "End Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fge8FCuYTTP",
+          "sdkName": "lastPostedPeriod",
+          "definition": {
+            "name": "Last Posted Period",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqD8p2Uu9t9",
+          "sdkName": "active",
+          "definition": {
+            "name": "Active",
+            "type": "checkbox",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tqyVfPaVoWT",
+      "sdkName": "accounts",
+      "name": "Accounts",
+      "primaryFieldId": "fd9Xs6un3r3",
+      "fields": [
+        {
+          "id": "fd9Xs6un3r3",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdMXukd86XE",
+          "sdkName": "number",
+          "definition": {
+            "name": "Number",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnwPYSyBRwr",
+          "sdkName": "accountType",
+          "definition": {
+            "name": "Account Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "wtLg",
+                  "label": "Asset",
+                  "color": "purple"
+                },
+                {
+                  "value": "caoH",
+                  "label": "Liability",
+                  "color": "orange"
+                },
+                {
+                  "value": "kMHC",
+                  "label": "Equity",
+                  "color": "blue"
+                },
+                {
+                  "value": "uE8X",
+                  "label": "Income",
+                  "color": "gray"
+                },
+                {
+                  "value": "7s5j",
+                  "label": "Expense",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fduMMaM7ocw",
+          "sdkName": "subtype",
+          "definition": {
+            "name": "Subtype",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "hxqC",
+                  "label": "Bank",
+                  "color": "purple"
+                },
+                {
+                  "value": "g9it",
+                  "label": "Receivable",
+                  "color": "orange"
+                },
+                {
+                  "value": "fJJM",
+                  "label": "Other asset",
+                  "color": "blue"
+                },
+                {
+                  "value": "iq1e",
+                  "label": "Payable",
+                  "color": "gray"
+                },
+                {
+                  "value": "bNw1",
+                  "label": "Deposits held",
+                  "color": "red"
+                },
+                {
+                  "value": "rtUY",
+                  "label": "Prepaid",
+                  "color": "yellow"
+                },
+                {
+                  "value": "d19w",
+                  "label": "Other liability",
+                  "color": "green"
+                },
+                {
+                  "value": "ngJ4",
+                  "label": "Owner equity",
+                  "color": "pink"
+                },
+                {
+                  "value": "9wFY",
+                  "label": "Contributions",
+                  "color": "lime"
+                },
+                {
+                  "value": "eC3B",
+                  "label": "Distributions",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "2Be2",
+                  "label": "Operating income",
+                  "color": "emerald"
+                },
+                {
+                  "value": "birJ",
+                  "label": "Other income",
+                  "color": "sky"
+                },
+                {
+                  "value": "ujKS",
+                  "label": "Operating expense",
+                  "color": "teal"
+                },
+                {
+                  "value": "dvXB",
+                  "label": "Other expense",
+                  "color": "indigo"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvwqyXtCGKX",
+          "sdkName": "systemKey",
+          "definition": {
+            "name": "System Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmaJjntYRhm",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1NVHHHJhTe",
+          "sdkName": "active",
+          "definition": {
+            "name": "Active",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftQaNB7P6Tx",
+          "sdkName": "tenantCharge",
+          "definition": {
+            "name": "Tenant Charge",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhKUsUe9Vk8",
+          "sdkName": "billExpense",
+          "definition": {
+            "name": "Bill Expense",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f54Q66C8hCw",
+          "sdkName": "bankName",
+          "definition": {
+            "name": "Bank Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcPHCWQPLZ7",
+          "sdkName": "accountLast4",
+          "definition": {
+            "name": "Account Last4",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fgTiWxKSwKy",
+          "sdkName": "position",
+          "definition": {
+            "name": "Position",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "txejKc39S9N",
+      "sdkName": "transactions",
+      "name": "Transactions",
+      "primaryFieldId": "fcsa5zcNZWb",
+      "fields": [
+        {
+          "id": "fcsa5zcNZWb",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9po7Sxtyt1",
+          "sdkName": "number",
+          "definition": {
+            "name": "Number",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "f7svFiSzV55",
+          "sdkName": "kind",
+          "definition": {
+            "name": "Kind",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "fheL",
+                  "label": "Charge",
+                  "color": "purple"
+                },
+                {
+                  "value": "51kq",
+                  "label": "Payment",
+                  "color": "orange"
+                },
+                {
+                  "value": "kEqg",
+                  "label": "Credit",
+                  "color": "blue"
+                },
+                {
+                  "value": "2n7A",
+                  "label": "Refund",
+                  "color": "gray"
+                },
+                {
+                  "value": "c71A",
+                  "label": "Deposit application",
+                  "color": "red"
+                },
+                {
+                  "value": "rC7D",
+                  "label": "Bill",
+                  "color": "yellow"
+                },
+                {
+                  "value": "vjoZ",
+                  "label": "Bill payment",
+                  "color": "green"
+                },
+                {
+                  "value": "825y",
+                  "label": "Expense",
+                  "color": "pink"
+                },
+                {
+                  "value": "bbrL",
+                  "label": "Owner contribution",
+                  "color": "lime"
+                },
+                {
+                  "value": "r73r",
+                  "label": "Owner distribution",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "dspC",
+                  "label": "Management fee",
+                  "color": "emerald"
+                },
+                {
+                  "value": "xrhY",
+                  "label": "Transfer",
+                  "color": "sky"
+                },
+                {
+                  "value": "dhaH",
+                  "label": "Journal entry",
+                  "color": "teal"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fcUhJ38HA4z",
+          "sdkName": "date",
+          "definition": {
+            "name": "Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "ftQb5NmbGRy",
+          "sdkName": "dueDate",
+          "definition": {
+            "name": "Due Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f951BVotwn1",
+          "sdkName": "amount",
+          "definition": {
+            "name": "Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f1j2vTTTAiK",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "wSGU",
+                  "label": "Posted",
+                  "color": "purple"
+                },
+                {
+                  "value": "u6Rh",
+                  "label": "Void",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "frGXXf5AcgF",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxvtK1fEFvH",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5PrMNiQJUU",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8vNZZdPeu4",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8feWMkhq9s",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5Uu6JNpJb9",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxx1Qzwt6oP",
+          "sdkName": "workOrderId",
+          "definition": {
+            "name": "Work Order Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkRcpfdiy7Y",
+          "sdkName": "accountId",
+          "definition": {
+            "name": "Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9fiQ3aF8HQ",
+          "sdkName": "bankAccountId",
+          "definition": {
+            "name": "Bank Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f75zwFEoJUk",
+          "sdkName": "paymentMethod",
+          "definition": {
+            "name": "Payment Method",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "tbTV",
+                  "label": "Cash",
+                  "color": "purple"
+                },
+                {
+                  "value": "jBdw",
+                  "label": "Check",
+                  "color": "orange"
+                },
+                {
+                  "value": "3Th9",
+                  "label": "ACH",
+                  "color": "blue"
+                },
+                {
+                  "value": "oycS",
+                  "label": "Card",
+                  "color": "gray"
+                },
+                {
+                  "value": "xruW",
+                  "label": "Money order",
+                  "color": "red"
+                },
+                {
+                  "value": "b9YP",
+                  "label": "Online",
+                  "color": "yellow"
+                },
+                {
+                  "value": "dNuf",
+                  "label": "Other",
+                  "color": "green"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ftFgc1tSjFY",
+          "sdkName": "reference",
+          "definition": {
+            "name": "Reference",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhtvEaHMu43",
+          "sdkName": "source",
+          "definition": {
+            "name": "Source",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "n5rW",
+                  "label": "Manual",
+                  "color": "purple"
+                },
+                {
+                  "value": "nPKm",
+                  "label": "Recurring",
+                  "color": "orange"
+                },
+                {
+                  "value": "31Hj",
+                  "label": "Late fee",
+                  "color": "blue"
+                },
+                {
+                  "value": "tQvk",
+                  "label": "Portal",
+                  "color": "gray"
+                },
+                {
+                  "value": "jGMH",
+                  "label": "Online payment",
+                  "color": "red"
+                },
+                {
+                  "value": "vsu8",
+                  "label": "Work order",
+                  "color": "yellow"
+                },
+                {
+                  "value": "wYcw",
+                  "label": "Move-out",
+                  "color": "green"
+                },
+                {
+                  "value": "uwce",
+                  "label": "Import",
+                  "color": "pink"
+                },
+                {
+                  "value": "pPfN",
+                  "label": "System",
+                  "color": "lime"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fqmvWcS3tYv",
+          "sdkName": "period",
+          "definition": {
+            "name": "Period",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fu6LdC7Sdi3",
+          "sdkName": "recurringChargeId",
+          "definition": {
+            "name": "Recurring Charge Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmG3hoHnqaG",
+          "sdkName": "onlinePaymentId",
+          "definition": {
+            "name": "Online Payment Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2cRTs7A9tx",
+          "sdkName": "attachmentUrl",
+          "definition": {
+            "name": "Attachment Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkJZcUiEMAQ",
+          "sdkName": "voidedAt",
+          "definition": {
+            "name": "Voided At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f6e6N1ndnNL",
+          "sdkName": "voidReason",
+          "definition": {
+            "name": "Void Reason",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdS5Yg8sMtS",
+          "sdkName": "voidedById",
+          "definition": {
+            "name": "Voided By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f26epAZQdiz",
+          "sdkName": "createdById",
+          "definition": {
+            "name": "Created By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3uTAzFww3M",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tbbZhPYttsc",
+      "sdkName": "journalLines",
+      "name": "Journal Lines",
+      "primaryFieldId": "f5hSRdwaRzL",
+      "fields": [
+        {
+          "id": "f5hSRdwaRzL",
+          "sdkName": "memo",
+          "definition": {
+            "name": "Memo",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqHCHJAZ7hr",
+          "sdkName": "transactionId",
+          "definition": {
+            "name": "Transaction Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frdZbG77pEG",
+          "sdkName": "date",
+          "definition": {
+            "name": "Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fhrzThDoeEM",
+          "sdkName": "accountId",
+          "definition": {
+            "name": "Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feXAVxhFUxF",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foFRk5BvKyU",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffG15ossjRX",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fk6zQ5qeYAu",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1brfdq7do2",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwRPpa41ZVX",
+          "sdkName": "debit",
+          "definition": {
+            "name": "Debit",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fmFrw5ZmasE",
+          "sdkName": "credit",
+          "definition": {
+            "name": "Credit",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f9eoEuQgcHZ",
+          "sdkName": "void",
+          "definition": {
+            "name": "Void",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8DiqvJrTKZ",
+          "sdkName": "clearedAt",
+          "definition": {
+            "name": "Cleared At",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fcPGijD1SaP",
+          "sdkName": "reconciliationId",
+          "definition": {
+            "name": "Reconciliation Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "trLNzZXTyGU",
+      "sdkName": "allocations",
+      "name": "Allocations",
+      "primaryFieldId": "f4aKCtLWbhN",
+      "fields": [
+        {
+          "id": "f4aKCtLWbhN",
+          "sdkName": "paymentId",
+          "definition": {
+            "name": "Payment Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpLmkRsDKdU",
+          "sdkName": "chargeId",
+          "definition": {
+            "name": "Charge Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faVB3u5b3GC",
+          "sdkName": "amount",
+          "definition": {
+            "name": "Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fjTxsPBFoFk",
+          "sdkName": "date",
+          "definition": {
+            "name": "Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "famHciUr8Mg",
+          "sdkName": "void",
+          "definition": {
+            "name": "Void",
+            "type": "checkbox",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tew4Z8hzLwM",
+      "sdkName": "reconciliations",
+      "name": "Reconciliations",
+      "primaryFieldId": "fqmDXb77qwF",
+      "fields": [
+        {
+          "id": "fqmDXb77qwF",
+          "sdkName": "statementDate",
+          "definition": {
+            "name": "Statement Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fn4xRc5rbAQ",
+          "sdkName": "bankAccountId",
+          "definition": {
+            "name": "Bank Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9frHjSjzrU",
+          "sdkName": "statementBalance",
+          "definition": {
+            "name": "Statement Balance",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fhw4CVzTPLm",
+          "sdkName": "clearedBalance",
+          "definition": {
+            "name": "Cleared Balance",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fg8qxGANJYa",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "x8s2",
+                  "label": "In progress",
+                  "color": "purple"
+                },
+                {
+                  "value": "a3f4",
+                  "label": "Completed",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f9hVt2xUwKF",
+          "sdkName": "completedAt",
+          "definition": {
+            "name": "Completed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "ftTZRzNVsSh",
+          "sdkName": "completedById",
+          "definition": {
+            "name": "Completed By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fb7fWzfJw9H",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tfwPBgAPNUR",
+      "sdkName": "vendors",
+      "name": "Vendors",
+      "primaryFieldId": "fgmXcAhSdhQ",
+      "fields": [
+        {
+          "id": "fgmXcAhSdhQ",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqiGLeysDAU",
+          "sdkName": "trade",
+          "definition": {
+            "name": "Trade",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "qf3F",
+                  "label": "General",
+                  "color": "purple"
+                },
+                {
+                  "value": "qAVk",
+                  "label": "Plumbing",
+                  "color": "orange"
+                },
+                {
+                  "value": "5okF",
+                  "label": "Electrical",
+                  "color": "blue"
+                },
+                {
+                  "value": "nUmQ",
+                  "label": "HVAC",
+                  "color": "gray"
+                },
+                {
+                  "value": "1suF",
+                  "label": "Appliance",
+                  "color": "red"
+                },
+                {
+                  "value": "ns1f",
+                  "label": "Landscaping",
+                  "color": "yellow"
+                },
+                {
+                  "value": "dHJB",
+                  "label": "Cleaning",
+                  "color": "green"
+                },
+                {
+                  "value": "mSax",
+                  "label": "Pest control",
+                  "color": "pink"
+                },
+                {
+                  "value": "vV5U",
+                  "label": "Roofing",
+                  "color": "lime"
+                },
+                {
+                  "value": "1wrW",
+                  "label": "Painting",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "pkEa",
+                  "label": "Locksmith",
+                  "color": "emerald"
+                },
+                {
+                  "value": "jGXS",
+                  "label": "Flooring",
+                  "color": "sky"
+                },
+                {
+                  "value": "5DoM",
+                  "label": "Utilities",
+                  "color": "teal"
+                },
+                {
+                  "value": "2av6",
+                  "label": "Insurance",
+                  "color": "indigo"
+                },
+                {
+                  "value": "jtKG",
+                  "label": "Other",
+                  "color": "cyan"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fcHv2CYHMAf",
+          "sdkName": "contactName",
+          "definition": {
+            "name": "Contact Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fchg4PQwaKN",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fopGr8NGGBH",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fv4cvQcK8Ya",
+          "sdkName": "address",
+          "definition": {
+            "name": "Address",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faZ98F1paMG",
+          "sdkName": "taxIdLast4",
+          "definition": {
+            "name": "Tax Id Last4",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkNGuTaaGbf",
+          "sdkName": "is1099",
+          "definition": {
+            "name": "Is 1099",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "faK9SZJFqPU",
+          "sdkName": "w9OnFile",
+          "definition": {
+            "name": "W9 On File",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fi5ut6MhDiB",
+          "sdkName": "insuranceExpiresOn",
+          "definition": {
+            "name": "Insurance Expires On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fuEegZR3ynW",
+          "sdkName": "licenseNumber",
+          "definition": {
+            "name": "License Number",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faVVBkRC3r2",
+          "sdkName": "hourlyRate",
+          "definition": {
+            "name": "Hourly Rate",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "ffx5EReuiAv",
+          "sdkName": "rating",
+          "definition": {
+            "name": "Rating",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f3JCJLG6LJH",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "fNka",
+                  "label": "Active",
+                  "color": "purple"
+                },
+                {
+                  "value": "kKan",
+                  "label": "Inactive",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f8UasmXtXN8",
+          "sdkName": "portalEnabled",
+          "definition": {
+            "name": "Portal Enabled",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8LVPar6ZYS",
+          "sdkName": "defaultAccountId",
+          "definition": {
+            "name": "Default Account Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmEqe9QYc4N",
+          "sdkName": "paymentTermsDays",
+          "definition": {
+            "name": "Payment Terms Days",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fhhJpdoXWzm",
+          "sdkName": "color",
+          "definition": {
+            "name": "Color",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuK6bAGPL5J",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "twa3vtkkX6Q",
+      "sdkName": "workOrders",
+      "name": "Work Orders",
+      "primaryFieldId": "f2FJAhmhKs3",
+      "fields": [
+        {
+          "id": "f2FJAhmhKs3",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4zRJ3WkWgR",
+          "sdkName": "number",
+          "definition": {
+            "name": "Number",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "feGFukcoSCW",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqweZAfQgzV",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiTNyqbMq1G",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwceSn1yJkB",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1P54JYmQaS",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3nWg8iG7AQ",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "3icZ",
+                  "label": "Plumbing",
+                  "color": "purple"
+                },
+                {
+                  "value": "74rM",
+                  "label": "Electrical",
+                  "color": "orange"
+                },
+                {
+                  "value": "mg3C",
+                  "label": "HVAC",
+                  "color": "blue"
+                },
+                {
+                  "value": "9DMv",
+                  "label": "Appliance",
+                  "color": "gray"
+                },
+                {
+                  "value": "66xE",
+                  "label": "Pest control",
+                  "color": "red"
+                },
+                {
+                  "value": "mDwq",
+                  "label": "Locks & keys",
+                  "color": "yellow"
+                },
+                {
+                  "value": "3vWN",
+                  "label": "Doors & windows",
+                  "color": "green"
+                },
+                {
+                  "value": "kaVB",
+                  "label": "Flooring",
+                  "color": "pink"
+                },
+                {
+                  "value": "hHTp",
+                  "label": "Painting",
+                  "color": "lime"
+                },
+                {
+                  "value": "cTac",
+                  "label": "Landscaping",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "3b4d",
+                  "label": "Roofing",
+                  "color": "emerald"
+                },
+                {
+                  "value": "1cbf",
+                  "label": "Cleaning",
+                  "color": "sky"
+                },
+                {
+                  "value": "cyuq",
+                  "label": "Safety",
+                  "color": "teal"
+                },
+                {
+                  "value": "sW7L",
+                  "label": "Turnover",
+                  "color": "indigo"
+                },
+                {
+                  "value": "wzWH",
+                  "label": "General",
+                  "color": "cyan"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fgBQ9PkJNMN",
+          "sdkName": "priority",
+          "definition": {
+            "name": "Priority",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "cU2w",
+                  "label": "Emergency",
+                  "color": "purple"
+                },
+                {
+                  "value": "3pZP",
+                  "label": "High",
+                  "color": "orange"
+                },
+                {
+                  "value": "kFNg",
+                  "label": "Normal",
+                  "color": "blue"
+                },
+                {
+                  "value": "tqDM",
+                  "label": "Low",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f18st65VMsh",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "7Xs9",
+                  "label": "New",
+                  "color": "purple"
+                },
+                {
+                  "value": "8VZJ",
+                  "label": "Scheduled",
+                  "color": "orange"
+                },
+                {
+                  "value": "rydJ",
+                  "label": "In progress",
+                  "color": "blue"
+                },
+                {
+                  "value": "cWXD",
+                  "label": "On hold",
+                  "color": "gray"
+                },
+                {
+                  "value": "dB7n",
+                  "label": "Completed",
+                  "color": "red"
+                },
+                {
+                  "value": "5P4G",
+                  "label": "Canceled",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fjG3NswmTEe",
+          "sdkName": "source",
+          "definition": {
+            "name": "Source",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "9547",
+                  "label": "Portal",
+                  "color": "purple"
+                },
+                {
+                  "value": "o2cu",
+                  "label": "Staff",
+                  "color": "orange"
+                },
+                {
+                  "value": "sKMq",
+                  "label": "Phone",
+                  "color": "blue"
+                },
+                {
+                  "value": "m9RK",
+                  "label": "Email",
+                  "color": "gray"
+                },
+                {
+                  "value": "75wk",
+                  "label": "Inspection",
+                  "color": "red"
+                },
+                {
+                  "value": "mLrf",
+                  "label": "Recurring",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f8goHxsYmZd",
+          "sdkName": "assigneeId",
+          "definition": {
+            "name": "Assignee Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frgiS6KDQnQ",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvcXihH1aW9",
+          "sdkName": "scheduledFor",
+          "definition": {
+            "name": "Scheduled For",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fszbcQidij6",
+          "sdkName": "dueDate",
+          "definition": {
+            "name": "Due Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f5n3qHW2As1",
+          "sdkName": "startedAt",
+          "definition": {
+            "name": "Started At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fbWbzdQFLog",
+          "sdkName": "completedAt",
+          "definition": {
+            "name": "Completed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f6CUi9yNLMS",
+          "sdkName": "permissionToEnter",
+          "definition": {
+            "name": "Permission To Enter",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmtcphYeW1P",
+          "sdkName": "entryNotes",
+          "definition": {
+            "name": "Entry Notes",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feN21S2oDWf",
+          "sdkName": "estimateAmount",
+          "definition": {
+            "name": "Estimate Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f5DVsDcGHcV",
+          "sdkName": "actualCost",
+          "definition": {
+            "name": "Actual Cost",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f8afM8JBi3Y",
+          "sdkName": "billId",
+          "definition": {
+            "name": "Bill Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fa3hPCMzMBn",
+          "sdkName": "tenantChargeId",
+          "definition": {
+            "name": "Tenant Charge Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fm2dXsme8im",
+          "sdkName": "ownerApproval",
+          "definition": {
+            "name": "Owner Approval",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "1TCG",
+                  "label": "Not required",
+                  "color": "purple"
+                },
+                {
+                  "value": "nupW",
+                  "label": "Pending",
+                  "color": "orange"
+                },
+                {
+                  "value": "4pP9",
+                  "label": "Approved",
+                  "color": "blue"
+                },
+                {
+                  "value": "qdQZ",
+                  "label": "Declined",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f9HBs47TegD",
+          "sdkName": "ownerApprovalNote",
+          "definition": {
+            "name": "Owner Approval Note",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8PJRC3FvJW",
+          "sdkName": "ownerRespondedAt",
+          "definition": {
+            "name": "Owner Responded At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f3hx89aTbQy",
+          "sdkName": "photos",
+          "definition": {
+            "name": "Photos",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5eZHVbHCYE",
+          "sdkName": "completionNotes",
+          "definition": {
+            "name": "Completion Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f19yp2q4BSo",
+          "sdkName": "tenantRating",
+          "definition": {
+            "name": "Tenant Rating",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "f2tZyUtSj5W",
+          "sdkName": "tenantFeedback",
+          "definition": {
+            "name": "Tenant Feedback",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjxqgm8BP7C",
+          "sdkName": "scheduleId",
+          "definition": {
+            "name": "Schedule Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffzh8NxwoiT",
+          "sdkName": "inspectionId",
+          "definition": {
+            "name": "Inspection Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhQWBc1nBHD",
+          "sdkName": "createdById",
+          "definition": {
+            "name": "Created By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiXeddpVSr3",
+          "sdkName": "lastActivityAt",
+          "definition": {
+            "name": "Last Activity At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "faNefTbvpZa",
+          "sdkName": "reportedAt",
+          "definition": {
+            "name": "Reported At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tg3WQKz59yU",
+      "sdkName": "maintenanceSchedules",
+      "name": "Maintenance Schedules",
+      "primaryFieldId": "fxcDUzkmFwM",
+      "fields": [
+        {
+          "id": "fxcDUzkmFwM",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fna3vmEQdj2",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjHH5TqhLxw",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ft5yYqmVArN",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhGsTqhvjyW",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiP1BwVgXWU",
+          "sdkName": "priority",
+          "definition": {
+            "name": "Priority",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "p5ec",
+                  "label": "High",
+                  "color": "purple"
+                },
+                {
+                  "value": "7SFA",
+                  "label": "Normal",
+                  "color": "orange"
+                },
+                {
+                  "value": "5x1Z",
+                  "label": "Low",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f5MoQqYyHAg",
+          "sdkName": "frequency",
+          "definition": {
+            "name": "Frequency",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "vb5x",
+                  "label": "Monthly",
+                  "color": "purple"
+                },
+                {
+                  "value": "3m2W",
+                  "label": "Quarterly",
+                  "color": "orange"
+                },
+                {
+                  "value": "t5S7",
+                  "label": "Semiannually",
+                  "color": "blue"
+                },
+                {
+                  "value": "qw6a",
+                  "label": "Annually",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f25zKjkedVc",
+          "sdkName": "nextDueOn",
+          "definition": {
+            "name": "Next Due On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fjhhUfWAFbD",
+          "sdkName": "leadDays",
+          "definition": {
+            "name": "Lead Days",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fgvjYSDCTX9",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fn1TtdVXGpe",
+          "sdkName": "assigneeId",
+          "definition": {
+            "name": "Assignee Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdFADCBfhfN",
+          "sdkName": "estimateAmount",
+          "definition": {
+            "name": "Estimate Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fscpecdXAWB",
+          "sdkName": "active",
+          "definition": {
+            "name": "Active",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "foxB1WANoY6",
+          "sdkName": "lastGeneratedOn",
+          "definition": {
+            "name": "Last Generated On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tsLurHV3Lra",
+      "sdkName": "inspections",
+      "name": "Inspections",
+      "primaryFieldId": "f3YbS4RqBwr",
+      "fields": [
+        {
+          "id": "f3YbS4RqBwr",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8XW7zRj8aS",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmTt531HkmB",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fd2RXUNeqd3",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fojcG4NwG1G",
+          "sdkName": "inspectionType",
+          "definition": {
+            "name": "Inspection Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "jL1f",
+                  "label": "Move-in",
+                  "color": "purple"
+                },
+                {
+                  "value": "1csa",
+                  "label": "Move-out",
+                  "color": "orange"
+                },
+                {
+                  "value": "fEE7",
+                  "label": "Routine",
+                  "color": "blue"
+                },
+                {
+                  "value": "9RGe",
+                  "label": "Annual",
+                  "color": "gray"
+                },
+                {
+                  "value": "tFds",
+                  "label": "Drive-by",
+                  "color": "red"
+                },
+                {
+                  "value": "3vo3",
+                  "label": "Pre-listing",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f6FsLzYshYJ",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "foh2",
+                  "label": "Scheduled",
+                  "color": "purple"
+                },
+                {
+                  "value": "saVB",
+                  "label": "In progress",
+                  "color": "orange"
+                },
+                {
+                  "value": "qxVu",
+                  "label": "Completed",
+                  "color": "blue"
+                },
+                {
+                  "value": "3gn1",
+                  "label": "Canceled",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fexNkvNXki9",
+          "sdkName": "scheduledFor",
+          "definition": {
+            "name": "Scheduled For",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fgDxwPh2AAh",
+          "sdkName": "completedAt",
+          "definition": {
+            "name": "Completed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fa2kwwqK6fs",
+          "sdkName": "inspectorId",
+          "definition": {
+            "name": "Inspector Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkebV1Di5zE",
+          "sdkName": "areas",
+          "definition": {
+            "name": "Areas",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foCScVMYDXq",
+          "sdkName": "summary",
+          "definition": {
+            "name": "Summary",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7bvpeT2DU1",
+          "sdkName": "overallCondition",
+          "definition": {
+            "name": "Overall Condition",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "vhDT",
+                  "label": "Excellent",
+                  "color": "purple"
+                },
+                {
+                  "value": "5C43",
+                  "label": "Good",
+                  "color": "orange"
+                },
+                {
+                  "value": "bR1H",
+                  "label": "Fair",
+                  "color": "blue"
+                },
+                {
+                  "value": "pNm1",
+                  "label": "Poor",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f8nch2NfgyG",
+          "sdkName": "sharedWithTenant",
+          "definition": {
+            "name": "Shared With Tenant",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fm4cny47vkK",
+          "sdkName": "tenantAcknowledgedAt",
+          "definition": {
+            "name": "Tenant Acknowledged At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fxcdRKwXH9w",
+          "sdkName": "reportUrl",
+          "definition": {
+            "name": "Report Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "t8wHdA94Nfo",
+      "sdkName": "listings",
+      "name": "Listings",
+      "primaryFieldId": "fbMAmhY4wRB",
+      "fields": [
+        {
+          "id": "fbMAmhY4wRB",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmfwjmhgPXZ",
+          "sdkName": "slug",
+          "definition": {
+            "name": "Slug",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwzmPeiNpen",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiLEfQc4sxE",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhD1w6e7dCm",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "3D8M",
+                  "label": "Draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "aU8p",
+                  "label": "Published",
+                  "color": "orange"
+                },
+                {
+                  "value": "2GdE",
+                  "label": "Paused",
+                  "color": "blue"
+                },
+                {
+                  "value": "5dgG",
+                  "label": "Leased",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fdDDgPAPbYG",
+          "sdkName": "rent",
+          "definition": {
+            "name": "Rent",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fnuuDtGhiip",
+          "sdkName": "deposit",
+          "definition": {
+            "name": "Deposit",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fvWKknziFF1",
+          "sdkName": "availableOn",
+          "definition": {
+            "name": "Available On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fiWrNiKZhHy",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffz4qKpcy6Y",
+          "sdkName": "photos",
+          "definition": {
+            "name": "Photos",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5JA6GAiEap",
+          "sdkName": "amenities",
+          "definition": {
+            "name": "Amenities",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8RodgjJALh",
+          "sdkName": "leaseTerm",
+          "definition": {
+            "name": "Lease Term",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fddPnLow8gy",
+          "sdkName": "petPolicy",
+          "definition": {
+            "name": "Pet Policy",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "s5jg",
+                  "label": "No pets",
+                  "color": "purple"
+                },
+                {
+                  "value": "jxj8",
+                  "label": "Cats only",
+                  "color": "orange"
+                },
+                {
+                  "value": "giwP",
+                  "label": "Dogs only",
+                  "color": "blue"
+                },
+                {
+                  "value": "b3kw",
+                  "label": "Cats and dogs",
+                  "color": "gray"
+                },
+                {
+                  "value": "v5W8",
+                  "label": "Case by case",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fogqwuKaayU",
+          "sdkName": "applicationFee",
+          "definition": {
+            "name": "Application Fee",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f56EggfL5RB",
+          "sdkName": "showingInstructions",
+          "definition": {
+            "name": "Showing Instructions",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsEPoALo8x1",
+          "sdkName": "contactMemberId",
+          "definition": {
+            "name": "Contact Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiU675kdTer",
+          "sdkName": "publishedAt",
+          "definition": {
+            "name": "Published At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f2cf5CZ1K18",
+          "sdkName": "views",
+          "definition": {
+            "name": "Views",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t3S33dxyrmy",
+      "sdkName": "inquiries",
+      "name": "Inquiries",
+      "primaryFieldId": "fh2BrkdvRu6",
+      "fields": [
+        {
+          "id": "fh2BrkdvRu6",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3rUKZ4tAFG",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fk2D8NLgbo2",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuxMQ9qwQqa",
+          "sdkName": "message",
+          "definition": {
+            "name": "Message",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f754S2q2u8j",
+          "sdkName": "listingId",
+          "definition": {
+            "name": "Listing Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6UpGprovfh",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fik5hkoqamU",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foj3XUbsWNQ",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "tevH",
+                  "label": "New",
+                  "color": "purple"
+                },
+                {
+                  "value": "kSrN",
+                  "label": "Contacted",
+                  "color": "orange"
+                },
+                {
+                  "value": "kDi4",
+                  "label": "Showing scheduled",
+                  "color": "blue"
+                },
+                {
+                  "value": "r2rg",
+                  "label": "Applied",
+                  "color": "gray"
+                },
+                {
+                  "value": "3DnU",
+                  "label": "Closed",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fkWVnKk3efg",
+          "sdkName": "source",
+          "definition": {
+            "name": "Source",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "gs5e",
+                  "label": "Portal",
+                  "color": "purple"
+                },
+                {
+                  "value": "ch4e",
+                  "label": "Phone",
+                  "color": "orange"
+                },
+                {
+                  "value": "dfFT",
+                  "label": "Email",
+                  "color": "blue"
+                },
+                {
+                  "value": "prXf",
+                  "label": "Walk-in",
+                  "color": "gray"
+                },
+                {
+                  "value": "bLuG",
+                  "label": "Listing site",
+                  "color": "red"
+                },
+                {
+                  "value": "gsXc",
+                  "label": "Referral",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fweFWWHm3R7",
+          "sdkName": "showingAt",
+          "definition": {
+            "name": "Showing At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fqS8AA3Aym2",
+          "sdkName": "desiredMoveIn",
+          "definition": {
+            "name": "Desired Move In",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fwbHgrRkhyj",
+          "sdkName": "assigneeId",
+          "definition": {
+            "name": "Assignee Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fghKy432sgs",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f98wLdPQrhY",
+          "sdkName": "lastContactedAt",
+          "definition": {
+            "name": "Last Contacted At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fnCpcsAsZ7x",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjc4izsiJ63",
+          "sdkName": "receivedAt",
+          "definition": {
+            "name": "Received At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tjGQQVqKMVc",
+      "sdkName": "applications",
+      "name": "Applications",
+      "primaryFieldId": "f5MQfQTCZ5n",
+      "fields": [
+        {
+          "id": "f5MQfQTCZ5n",
+          "sdkName": "applicantName",
+          "definition": {
+            "name": "Applicant Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faEcZm8fs1k",
+          "sdkName": "number",
+          "definition": {
+            "name": "Number",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fgQnoGgHTzY",
+          "sdkName": "listingId",
+          "definition": {
+            "name": "Listing Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fs34s2zcHVv",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnxTYd1C21L",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fn2ivpcBoF9",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "4Qhc",
+                  "label": "Draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "hUMc",
+                  "label": "Submitted",
+                  "color": "orange"
+                },
+                {
+                  "value": "peZZ",
+                  "label": "Screening",
+                  "color": "blue"
+                },
+                {
+                  "value": "rs5a",
+                  "label": "Approved",
+                  "color": "gray"
+                },
+                {
+                  "value": "8MaC",
+                  "label": "Denied",
+                  "color": "red"
+                },
+                {
+                  "value": "is7X",
+                  "label": "Withdrawn",
+                  "color": "yellow"
+                },
+                {
+                  "value": "e3Fn",
+                  "label": "Leased",
+                  "color": "green"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fe7EN8YHp7r",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpJYymguMHB",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsn1tnnf2V8",
+          "sdkName": "portalEmail",
+          "definition": {
+            "name": "Portal Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "faCsCSEW72j",
+          "sdkName": "desiredMoveIn",
+          "definition": {
+            "name": "Desired Move In",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f7SH7atHAcG",
+          "sdkName": "monthlyIncome",
+          "definition": {
+            "name": "Monthly Income",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "frvVsKvfHCq",
+          "sdkName": "employer",
+          "definition": {
+            "name": "Employer",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2JwdpZ5Pgg",
+          "sdkName": "jobTitle",
+          "definition": {
+            "name": "Job Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fgFeyiFfJQS",
+          "sdkName": "employmentMonths",
+          "definition": {
+            "name": "Employment Months",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fhSKQAV65AR",
+          "sdkName": "currentAddress",
+          "definition": {
+            "name": "Current Address",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdJYxJJYimx",
+          "sdkName": "currentRent",
+          "definition": {
+            "name": "Current Rent",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f2eQaHnqJZf",
+          "sdkName": "currentLandlord",
+          "definition": {
+            "name": "Current Landlord",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fa2Q6ZgqLRy",
+          "sdkName": "landlordPhone",
+          "definition": {
+            "name": "Landlord Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feu2WVpnuUF",
+          "sdkName": "residenceMonths",
+          "definition": {
+            "name": "Residence Months",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fperMkEHyhX",
+          "sdkName": "reasonForMoving",
+          "definition": {
+            "name": "Reason For Moving",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8aP7cCCZpL",
+          "sdkName": "occupants",
+          "definition": {
+            "name": "Occupants",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fpzxW9YCs3U",
+          "sdkName": "pets",
+          "definition": {
+            "name": "Pets",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8PNrtYosyE",
+          "sdkName": "vehicles",
+          "definition": {
+            "name": "Vehicles",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbEUhuJ1PJC",
+          "sdkName": "priorEviction",
+          "definition": {
+            "name": "Prior Eviction",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnucDrshKdW",
+          "sdkName": "coApplicants",
+          "definition": {
+            "name": "Co Applicants",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3oyfe9WrFi",
+          "sdkName": "details",
+          "definition": {
+            "name": "Details",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faePWokDeBH",
+          "sdkName": "screening",
+          "definition": {
+            "name": "Screening",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvHoUq8zARa",
+          "sdkName": "screeningNotes",
+          "definition": {
+            "name": "Screening Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhgDWnHVMFq",
+          "sdkName": "consentAt",
+          "definition": {
+            "name": "Consent At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "frPDCTzM6i3",
+          "sdkName": "signature",
+          "definition": {
+            "name": "Signature",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frWDX7nQthd",
+          "sdkName": "feeAmount",
+          "definition": {
+            "name": "Fee Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "f1B1G8yJwuG",
+          "sdkName": "feePaidAt",
+          "definition": {
+            "name": "Fee Paid At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fjuDdHkifYG",
+          "sdkName": "decisionReason",
+          "definition": {
+            "name": "Decision Reason",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fstVyc4NyRF",
+          "sdkName": "decidedById",
+          "definition": {
+            "name": "Decided By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqtkb3uGeDW",
+          "sdkName": "decidedAt",
+          "definition": {
+            "name": "Decided At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fsY9QytsyJy",
+          "sdkName": "submittedAt",
+          "definition": {
+            "name": "Submitted At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f9e6VF5kLqR",
+          "sdkName": "source",
+          "definition": {
+            "name": "Source",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "oGDZ",
+                  "label": "Portal",
+                  "color": "purple"
+                },
+                {
+                  "value": "q7Kp",
+                  "label": "Staff",
+                  "color": "orange"
+                },
+                {
+                  "value": "gcCL",
+                  "label": "Walk-in",
+                  "color": "blue"
+                },
+                {
+                  "value": "v4Kx",
+                  "label": "Listing site",
+                  "color": "gray"
+                },
+                {
+                  "value": "wW1h",
+                  "label": "Referral",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvop3EhmHmQ",
+          "sdkName": "assigneeId",
+          "definition": {
+            "name": "Assignee Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcgem4giBvH",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvxQozjMoAc",
+          "sdkName": "inquiryId",
+          "definition": {
+            "name": "Inquiry Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvzqoqk393B",
+          "sdkName": "lastActivityAt",
+          "definition": {
+            "name": "Last Activity At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "thUjvhZTREw",
+      "sdkName": "messages",
+      "name": "Messages",
+      "primaryFieldId": "fm5ZqxdPuXW",
+      "fields": [
+        {
+          "id": "fm5ZqxdPuXW",
+          "sdkName": "subject",
+          "definition": {
+            "name": "Subject",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fu5XbURwkbc",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqvZQaLCsZ8",
+          "sdkName": "thread",
+          "definition": {
+            "name": "Thread",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqTybaTaBi5",
+          "sdkName": "direction",
+          "definition": {
+            "name": "Direction",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "5ajR",
+                  "label": "Inbound",
+                  "color": "purple"
+                },
+                {
+                  "value": "cp9V",
+                  "label": "Outbound",
+                  "color": "orange"
+                },
+                {
+                  "value": "aEvN",
+                  "label": "Internal",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvU7NPQVxPk",
+          "sdkName": "channel",
+          "definition": {
+            "name": "Channel",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "6auP",
+                  "label": "Email",
+                  "color": "purple"
+                },
+                {
+                  "value": "2bc5",
+                  "label": "Portal",
+                  "color": "orange"
+                },
+                {
+                  "value": "rSoL",
+                  "label": "Note",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fak94SfhBxL",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7CFxmHD5J7",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frFfTy4iwrD",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1qW3fMXYp8",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9x7wu2DA1j",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpmETLfCGjv",
+          "sdkName": "workOrderId",
+          "definition": {
+            "name": "Work Order Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhiwKjcY5mc",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f74w1UjQJLc",
+          "sdkName": "announcementId",
+          "definition": {
+            "name": "Announcement Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fd8Lo15mRNN",
+          "sdkName": "senderMemberId",
+          "definition": {
+            "name": "Sender Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcMFQ3mBRS8",
+          "sdkName": "senderName",
+          "definition": {
+            "name": "Sender Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foc7DpriRCn",
+          "sdkName": "delivery",
+          "definition": {
+            "name": "Delivery",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "cX76",
+                  "label": "Sent",
+                  "color": "purple"
+                },
+                {
+                  "value": "wYnr",
+                  "label": "Failed",
+                  "color": "orange"
+                },
+                {
+                  "value": "uJzE",
+                  "label": "Portal only",
+                  "color": "blue"
+                },
+                {
+                  "value": "j9tJ",
+                  "label": "Received",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fmMuBQcvy6S",
+          "sdkName": "templateId",
+          "definition": {
+            "name": "Template Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6VHqm1LpJH",
+          "sdkName": "attachments",
+          "definition": {
+            "name": "Attachments",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpYbsBUJ21Z",
+          "sdkName": "readAt",
+          "definition": {
+            "name": "Read At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fs1X48MskRX",
+          "sdkName": "sentAt",
+          "definition": {
+            "name": "Sent At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tc7xizhmqwW",
+      "sdkName": "announcements",
+      "name": "Announcements",
+      "primaryFieldId": "fk4xj42E5zq",
+      "fields": [
+        {
+          "id": "fk4xj42E5zq",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsz9FdFrK3r",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjv5Rb5iQjW",
+          "sdkName": "audience",
+          "definition": {
+            "name": "Audience",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "5Wyk",
+                  "label": "All residents",
+                  "color": "purple"
+                },
+                {
+                  "value": "wpHD",
+                  "label": "Selected properties",
+                  "color": "orange"
+                },
+                {
+                  "value": "sD71",
+                  "label": "Owners",
+                  "color": "blue"
+                },
+                {
+                  "value": "pZAp",
+                  "label": "Vendors",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fiJLD6eSsXB",
+          "sdkName": "propertyIds",
+          "definition": {
+            "name": "Property Ids",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhsXedA1d2c",
+          "sdkName": "channel",
+          "definition": {
+            "name": "Channel",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "5izS",
+                  "label": "Email and portal",
+                  "color": "purple"
+                },
+                {
+                  "value": "1AZd",
+                  "label": "Portal only",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f7sVvEfYV7X",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "eEVg",
+                  "label": "Draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "8TKX",
+                  "label": "Sent",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fuhAHG9d9DZ",
+          "sdkName": "sentAt",
+          "definition": {
+            "name": "Sent At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fng42bbkupz",
+          "sdkName": "sentById",
+          "definition": {
+            "name": "Sent By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcD15ze2BDA",
+          "sdkName": "recipientCount",
+          "definition": {
+            "name": "Recipient Count",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fj2fgtv3xWN",
+          "sdkName": "pinnedUntil",
+          "definition": {
+            "name": "Pinned Until",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tjKzpZuZtUe",
+      "sdkName": "documents",
+      "name": "Documents",
+      "primaryFieldId": "f7kZoy91e7C",
+      "fields": [
+        {
+          "id": "f7kZoy91e7C",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnwxrmuHLtZ",
+          "sdkName": "url",
+          "definition": {
+            "name": "Url",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9GwMCWoDrY",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "gWRM",
+                  "label": "Lease",
+                  "color": "purple"
+                },
+                {
+                  "value": "mT7d",
+                  "label": "Addendum",
+                  "color": "orange"
+                },
+                {
+                  "value": "uJPM",
+                  "label": "Notice",
+                  "color": "blue"
+                },
+                {
+                  "value": "eVZb",
+                  "label": "Insurance",
+                  "color": "gray"
+                },
+                {
+                  "value": "rLna",
+                  "label": "Inspection",
+                  "color": "red"
+                },
+                {
+                  "value": "eK2m",
+                  "label": "Statement",
+                  "color": "yellow"
+                },
+                {
+                  "value": "fJyo",
+                  "label": "Invoice",
+                  "color": "green"
+                },
+                {
+                  "value": "wjFF",
+                  "label": "Receipt",
+                  "color": "pink"
+                },
+                {
+                  "value": "oo8u",
+                  "label": "Photo",
+                  "color": "lime"
+                },
+                {
+                  "value": "mRWx",
+                  "label": "Identification",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "6rrH",
+                  "label": "Other",
+                  "color": "emerald"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fnwvUabVDtD",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwSjWVq1WVe",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuwbkonop8M",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7gPnjM9ibv",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxiJuSG3XjS",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwi7EGy63iW",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "far67rTENkD",
+          "sdkName": "workOrderId",
+          "definition": {
+            "name": "Work Order Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvj5V8PY4PQ",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiXMGrcpXFU",
+          "sdkName": "sharedWithTenant",
+          "definition": {
+            "name": "Shared With Tenant",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "frW4FmSAY4u",
+          "sdkName": "sharedWithOwner",
+          "definition": {
+            "name": "Shared With Owner",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdV62KGCZnJ",
+          "sdkName": "uploadedById",
+          "definition": {
+            "name": "Uploaded By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpkMYNfkXgz",
+          "sdkName": "uploadedByName",
+          "definition": {
+            "name": "Uploaded By Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9QjHdhvozX",
+          "sdkName": "size",
+          "definition": {
+            "name": "Size",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        },
+        {
+          "id": "fb31GbUdfrN",
+          "sdkName": "mimeType",
+          "definition": {
+            "name": "Mime Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3M14JDBrAa",
+          "sdkName": "expiresOn",
+          "definition": {
+            "name": "Expires On",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f4FjPy8rjbH",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9yUr95yJEu",
+          "sdkName": "uploadedAt",
+          "definition": {
+            "name": "Uploaded At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t5JhdGxsb7T",
+      "sdkName": "tasks",
+      "name": "Tasks",
+      "primaryFieldId": "ftStPgTG4SU",
+      "fields": [
+        {
+          "id": "ftStPgTG4SU",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvi4JDyftz8",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmCYoXxsscF",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "f3fF",
+                  "label": "To do",
+                  "color": "purple"
+                },
+                {
+                  "value": "98n3",
+                  "label": "In progress",
+                  "color": "orange"
+                },
+                {
+                  "value": "9pti",
+                  "label": "Done",
+                  "color": "blue"
+                },
+                {
+                  "value": "o36A",
+                  "label": "Canceled",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "foRqwiDYLgs",
+          "sdkName": "priority",
+          "definition": {
+            "name": "Priority",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "wAU5",
+                  "label": "Urgent",
+                  "color": "purple"
+                },
+                {
+                  "value": "t8dr",
+                  "label": "High",
+                  "color": "orange"
+                },
+                {
+                  "value": "koW8",
+                  "label": "Normal",
+                  "color": "blue"
+                },
+                {
+                  "value": "eXd3",
+                  "label": "Low",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f6PMQJdMZ3f",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "1qi6",
+                  "label": "General",
+                  "color": "purple"
+                },
+                {
+                  "value": "mJ6z",
+                  "label": "Leasing",
+                  "color": "orange"
+                },
+                {
+                  "value": "pwct",
+                  "label": "Renewal",
+                  "color": "blue"
+                },
+                {
+                  "value": "dhvk",
+                  "label": "Move-in",
+                  "color": "gray"
+                },
+                {
+                  "value": "oAHa",
+                  "label": "Move-out",
+                  "color": "red"
+                },
+                {
+                  "value": "jqgh",
+                  "label": "Maintenance",
+                  "color": "yellow"
+                },
+                {
+                  "value": "jn4K",
+                  "label": "Inspection",
+                  "color": "green"
+                },
+                {
+                  "value": "5xSJ",
+                  "label": "Accounting",
+                  "color": "pink"
+                },
+                {
+                  "value": "woau",
+                  "label": "Compliance",
+                  "color": "lime"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fbUGSZqQiiD",
+          "sdkName": "dueDate",
+          "definition": {
+            "name": "Due Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f17QdoeLUpR",
+          "sdkName": "assigneeId",
+          "definition": {
+            "name": "Assignee Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f28mfrawhWQ",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f55mkY1NRdV",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foPwFqBgsVg",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fj8Szz6c4Lu",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjRtCmn3NBv",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1pm5sZ8bfK",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdHvmN5ubQp",
+          "sdkName": "workOrderId",
+          "definition": {
+            "name": "Work Order Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuqEQaPTVyf",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faUkcPuZVq5",
+          "sdkName": "createdById",
+          "definition": {
+            "name": "Created By Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhztE3Gpdpk",
+          "sdkName": "completedAt",
+          "definition": {
+            "name": "Completed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f43cVTx4HNa",
+          "sdkName": "systemKey",
+          "definition": {
+            "name": "System Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnVsvFwnLqY",
+          "sdkName": "openedAt",
+          "definition": {
+            "name": "Opened At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t8h4VpJuT9y",
+      "sdkName": "notifications",
+      "name": "Notifications",
+      "primaryFieldId": "f9a9vuduKTi",
+      "fields": [
+        {
+          "id": "f9a9vuduKTi",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkwT2Ljked2",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2dToZmUHgM",
+          "sdkName": "memberId",
+          "definition": {
+            "name": "Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3xQwX9sztn",
+          "sdkName": "kind",
+          "definition": {
+            "name": "Kind",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f34B3dXD7Gv",
+          "sdkName": "link",
+          "definition": {
+            "name": "Link",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6WEPas73hT",
+          "sdkName": "entityType",
+          "definition": {
+            "name": "Entity Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2fwQNaxmNr",
+          "sdkName": "entityId",
+          "definition": {
+            "name": "Entity Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftQbp9Wu114",
+          "sdkName": "actorId",
+          "definition": {
+            "name": "Actor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwLD8j1tM97",
+          "sdkName": "actorName",
+          "definition": {
+            "name": "Actor Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbUf8Nzvqzp",
+          "sdkName": "readAt",
+          "definition": {
+            "name": "Read At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "faFyyCKSq8g",
+          "sdkName": "archivedAt",
+          "definition": {
+            "name": "Archived At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fwHyQbauWVm",
+          "sdkName": "snoozedUntil",
+          "definition": {
+            "name": "Snoozed Until",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fxriiekTrwM",
+          "sdkName": "occurredAt",
+          "definition": {
+            "name": "Occurred At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t3tXb2f4HQP",
+      "sdkName": "activity",
+      "name": "Activity",
+      "primaryFieldId": "fjByCbbUHaw",
+      "fields": [
+        {
+          "id": "fjByCbbUHaw",
+          "sdkName": "summary",
+          "definition": {
+            "name": "Summary",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftX8ku6Rj39",
+          "sdkName": "entityType",
+          "definition": {
+            "name": "Entity Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcc6ziAMBDH",
+          "sdkName": "entityId",
+          "definition": {
+            "name": "Entity Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7LVqZZKZnK",
+          "sdkName": "action",
+          "definition": {
+            "name": "Action",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwcTjukPLj5",
+          "sdkName": "actorId",
+          "definition": {
+            "name": "Actor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foV2scH3KeK",
+          "sdkName": "actorName",
+          "definition": {
+            "name": "Actor Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdqubfrup7S",
+          "sdkName": "data",
+          "definition": {
+            "name": "Data",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fizXDNE3ix2",
+          "sdkName": "occurredAt",
+          "definition": {
+            "name": "Occurred At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "ffKNqU86C7Y",
+          "sdkName": "propertyId",
+          "definition": {
+            "name": "Property Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuXEY8Hw3Xq",
+          "sdkName": "unitId",
+          "definition": {
+            "name": "Unit Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frqJExkWe3S",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4ZB8CABrcg",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fr8VSdLP3EJ",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuBcjB7uHw3",
+          "sdkName": "vendorId",
+          "definition": {
+            "name": "Vendor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjKFieEgaDL",
+          "sdkName": "workOrderId",
+          "definition": {
+            "name": "Work Order Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fgDw7KDftNQ",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tkVvpHNLmwc",
+      "sdkName": "emailTemplates",
+      "name": "Email Templates",
+      "primaryFieldId": "ffG989vpy9L",
+      "fields": [
+        {
+          "id": "ffG989vpy9L",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5Dm3WMWu1p",
+          "sdkName": "trigger",
+          "definition": {
+            "name": "Trigger",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "7BEn",
+                  "label": "Manual",
+                  "color": "purple"
+                },
+                {
+                  "value": "iy1g",
+                  "label": "Rent reminder",
+                  "color": "orange"
+                },
+                {
+                  "value": "fgyd",
+                  "label": "Payment receipt",
+                  "color": "blue"
+                },
+                {
+                  "value": "gTnq",
+                  "label": "Late notice",
+                  "color": "gray"
+                },
+                {
+                  "value": "4EsP",
+                  "label": "Lease expiring",
+                  "color": "red"
+                },
+                {
+                  "value": "mttc",
+                  "label": "Renewal offer",
+                  "color": "yellow"
+                },
+                {
+                  "value": "eTs7",
+                  "label": "Signature request",
+                  "color": "green"
+                },
+                {
+                  "value": "bncX",
+                  "label": "Welcome",
+                  "color": "pink"
+                },
+                {
+                  "value": "8Sgz",
+                  "label": "Move-out",
+                  "color": "lime"
+                },
+                {
+                  "value": "oe1S",
+                  "label": "Application received",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "oYuL",
+                  "label": "Application approved",
+                  "color": "emerald"
+                },
+                {
+                  "value": "vGYy",
+                  "label": "Application denied",
+                  "color": "sky"
+                },
+                {
+                  "value": "qJJG",
+                  "label": "Work order received",
+                  "color": "teal"
+                },
+                {
+                  "value": "mxCa",
+                  "label": "Work order scheduled",
+                  "color": "indigo"
+                },
+                {
+                  "value": "vsLm",
+                  "label": "Work order completed",
+                  "color": "cyan"
+                },
+                {
+                  "value": "oBuc",
+                  "label": "Vendor assigned",
+                  "color": "violet"
+                },
+                {
+                  "value": "pprk",
+                  "label": "Owner statement",
+                  "color": "fuchsia"
+                },
+                {
+                  "value": "w1cf",
+                  "label": "Owner approval",
+                  "color": "purple"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fk7cLH9MG5W",
+          "sdkName": "audience",
+          "definition": {
+            "name": "Audience",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "vgVt",
+                  "label": "Tenant",
+                  "color": "purple"
+                },
+                {
+                  "value": "jdtc",
+                  "label": "Applicant",
+                  "color": "orange"
+                },
+                {
+                  "value": "esWq",
+                  "label": "Owner",
+                  "color": "blue"
+                },
+                {
+                  "value": "6Hek",
+                  "label": "Vendor",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fiXH1aknbjK",
+          "sdkName": "subject",
+          "definition": {
+            "name": "Subject",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "founRsxJ1LH",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "famonNRjY7q",
+          "sdkName": "enabled",
+          "definition": {
+            "name": "Enabled",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3yEpqHQJ5F",
+          "sdkName": "position",
+          "definition": {
+            "name": "Position",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t3CNHrb26vX",
+      "sdkName": "views",
+      "name": "Views",
+      "primaryFieldId": "futSVZWQg1Z",
+      "fields": [
+        {
+          "id": "futSVZWQg1Z",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6GG7QA1Gcp",
+          "sdkName": "scope",
+          "definition": {
+            "name": "Scope",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvJRNEapr2y",
+          "sdkName": "config",
+          "definition": {
+            "name": "Config",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbJjuvwGWT9",
+          "sdkName": "ownerId",
+          "definition": {
+            "name": "Owner Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fh4h8sMBRaQ",
+          "sdkName": "shared",
+          "definition": {
+            "name": "Shared",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "foyRPFqQMQa",
+          "sdkName": "position",
+          "definition": {
+            "name": "Position",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tqhahqkZrZj",
+      "sdkName": "onlinePayments",
+      "name": "Online Payments",
+      "primaryFieldId": "fadbNrHkMTV",
+      "fields": [
+        {
+          "id": "fadbNrHkMTV",
+          "sdkName": "intentId",
+          "definition": {
+            "name": "Intent Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2ofaRFZnBq",
+          "sdkName": "leaseId",
+          "definition": {
+            "name": "Lease Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fk7AB4eFs2U",
+          "sdkName": "tenantId",
+          "definition": {
+            "name": "Tenant Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frWp6ytDXFf",
+          "sdkName": "applicationId",
+          "definition": {
+            "name": "Application Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4AMJqx15ua",
+          "sdkName": "purpose",
+          "definition": {
+            "name": "Purpose",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "1mfs",
+                  "label": "Rent",
+                  "color": "purple"
+                },
+                {
+                  "value": "hAxx",
+                  "label": "Application fee",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvJqNeuknPo",
+          "sdkName": "amount",
+          "definition": {
+            "name": "Amount",
+            "type": "currency",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 2,
+              "currencySymbol": "$"
+            }
+          }
+        },
+        {
+          "id": "fv817mF1GT8",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "phtw",
+                  "label": "Pending",
+                  "color": "purple"
+                },
+                {
+                  "value": "3PQD",
+                  "label": "Processing",
+                  "color": "orange"
+                },
+                {
+                  "value": "9Lox",
+                  "label": "Succeeded",
+                  "color": "blue"
+                },
+                {
+                  "value": "vPjW",
+                  "label": "Failed",
+                  "color": "gray"
+                },
+                {
+                  "value": "fcsa",
+                  "label": "Canceled",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f1Q3skmRQaj",
+          "sdkName": "method",
+          "definition": {
+            "name": "Method",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feNkksygdjc",
+          "sdkName": "transactionId",
+          "definition": {
+            "name": "Transaction Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ff4wwz8PeF5",
+          "sdkName": "payerEmail",
+          "definition": {
+            "name": "Payer Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxx5Xx1ytWc",
+          "sdkName": "error",
+          "definition": {
+            "name": "Error",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fh1RfPEWjqq",
+          "sdkName": "settledAt",
+          "definition": {
+            "name": "Settled At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

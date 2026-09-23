@@ -1,0 +1,63 @@
+name: Bug report
+description: Something in the template behaves incorrectly.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. If this is a **security** problem, close this and use
+        [the advisory form](https://github.com/zite/property-management/security/advisories/new)
+        instead.
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Which app
+      options:
+        - Property Management (the office app)
+        - Resident Portal
+        - Both
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data
+    attributes:
+      label: What data were you on
+      options:
+        - The demo data, untouched
+        - The demo data, with my own changes on top
+        - My own data, demo removed
+    validations:
+      required: true
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Errors
+      description: >
+        Anything in the browser console, plus the run in your workspace's logs if
+        an endpoint failed. Redact anything private first.
+      render: text
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: The commit you installed, if you know it.

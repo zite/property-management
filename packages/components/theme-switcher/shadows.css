@@ -1,0 +1,36 @@
+:root {
+  --shadow-2xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+    var(--shadow-spread)
+    rgb(var(--shadow-rgb) / calc(var(--shadow-opacity) * 0.5));
+  --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+    var(--shadow-spread)
+    rgb(var(--shadow-rgb) / calc(var(--shadow-opacity) * 0.5));
+  --shadow-sm: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+      var(--shadow-spread) rgb(var(--shadow-rgb) / var(--shadow-opacity)),
+    var(--shadow-x) calc(var(--shadow-y) / 4) calc(var(--shadow-blur) / 2)
+      calc(var(--shadow-spread) - 1px)
+      rgb(var(--shadow-rgb) / var(--shadow-opacity));
+  --shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+      var(--shadow-spread) rgb(var(--shadow-rgb) / var(--shadow-opacity)),
+    var(--shadow-x) calc(var(--shadow-y) / 2) calc(var(--shadow-blur) / 2)
+      calc(var(--shadow-spread) - 1px)
+      rgb(var(--shadow-rgb) / var(--shadow-opacity));
+  --shadow-md: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+      var(--shadow-spread) rgb(var(--shadow-rgb) / var(--shadow-opacity)),
+    var(--shadow-x) calc(var(--shadow-y) / 2) calc(var(--shadow-blur) * 2)
+      calc(var(--shadow-spread) - 1px)
+      rgb(var(--shadow-rgb) / var(--shadow-opacity));
+  --shadow-lg: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+      var(--shadow-spread) rgb(var(--shadow-rgb) / var(--shadow-opacity)),
+    var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 3)
+      calc(var(--shadow-spread) - 1px)
+      rgb(var(--shadow-rgb) / var(--shadow-opacity));
+  --shadow-xl: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+      var(--shadow-spread) rgb(var(--shadow-rgb) / var(--shadow-opacity)),
+    var(--shadow-x) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 5)
+      calc(var(--shadow-spread) - 1px)
+      rgb(var(--shadow-rgb) / var(--shadow-opacity));
+  --shadow-2xl: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+    var(--shadow-spread)
+    rgb(var(--shadow-rgb) / calc(var(--shadow-opacity) * 2.5));
+}

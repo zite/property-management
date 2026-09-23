@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      # `zitejs check` is not usable in CI: on apps this size its endpoint
+      # bundler overflows a 1 MB stdout buffer and exits non-zero with no error.
+      # These are the three things it runs, split out so a failure is a real one.
+      - name: Type-check
+        run: |
+          npx tsc --noEmit -p apps/property-management/tsconfig.app.json
+          npx tsc --noEmit -p apps/resident-portal/tsconfig.app.json
+
+      - name: Bundle endpoints
+        run: node .github/scripts/check-endpoint-bundles.mjs
+
+      - name: Build
+        run: |
+          yarn workspace @project/property-management build
+          yarn workspace @project/resident-portal build

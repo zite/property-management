@@ -1,0 +1,17 @@
+{
+  "extends": "../../apps/property-management/tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": false,
+    "paths": {
+      "zitejs/db": ["../../.zite/db.ts"],
+      "zitejs/backend": ["../../apps/property-management/.zite/backend.ts"],
+      "zitejs/backend/base": ["../../node_modules/zitejs/dist/esm/backend/index.d.ts"],
+      "zitejs/auth": ["../../node_modules/zitejs/dist/esm/auth/index.d.ts"],
+      "zitejs/email": ["../../apps/property-management/.zite/integrations/email.ts"],
+      "zitejs/api": ["../../apps/property-management/.zite/api.ts"],
+      "@project/components/*": ["../components/*"]
+    }
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"]
+}

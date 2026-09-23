@@ -1,0 +1,37 @@
+.prose {
+  --tw-prose-pre-bg: hsl(var(--card));
+  --tw-prose-pre-code: hsl(var(--card-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--primary));
+
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-quotes: hsl(var(--muted-foreground));
+  --tw-prose-quote-borders: hsl(var(--border));
+}
+
+.prose mark {
+  color: hsl(var(--primary-foreground));
+  background-color: hsl(var(--primary));
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+.prose li,
+.prose li p {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}

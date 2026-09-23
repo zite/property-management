@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*
+     * A calm, cool surface with the organization's brand colour as the accent:
+     * one primary button a page, links and the focus ring — never a wash, so
+     * any company's colour can replace it without the page falling apart.
+     */
+    --canvas: 216 20% 97.2%;
+    --background: 0 0% 100%;
+    --foreground: 222 22% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 22% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 22% 11%;
+    --muted: 216 18% 94.5%;
+    /* 5.6:1 on white — secondary text stays readable, not decorative. */
+    --muted-foreground: 218 9% 40%;
+    /* Tertiary text: 4.7:1 on white. */
+    --faint: 218 7% 46%;
+    --subtle: 216 22% 98.3%;
+    --border: 216 14% 89%;
+    /* A form control's border is often the only thing marking the control, so it carries 3:1. */
+    --input: 218 9% 60%;
+    /* Replaced at runtime by the organization's brand colour (see lib/brand.ts). */
+    --primary: 173 80% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 16% 94%;
+    --secondary-foreground: 222 22% 14%;
+    --accent: 216 18% 95%;
+    --accent-foreground: 222 22% 11%;
+    --destructive: 356 68% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 173 80% 26%;
+    --radius: 0.625rem;
+
+    /* Semantic tones as RGB channels, each >= 4.5:1 against white. */
+    --tone-warning: 166 80 11;
+    --tone-info: 3 105 161;
+    --tone-success: 21 122 61;
+    --tone-danger: 190 32 46;
+    --tone-accent: 13 119 107;
+    --tone-neutral: 100 107 118;
+
+    --shadow-2xs: 0 1px 0 rgb(0 0 0 / 0.03);
+    --shadow-xs: 0 1px 2px rgb(15 23 42 / 0.05);
+    --shadow-sm: 0 1px 3px rgb(15 23 42 / 0.07), 0 1px 1px rgb(15 23 42 / 0.03);
+    --shadow: 0 2px 4px rgb(15 23 42 / 0.06), 0 1px 2px rgb(15 23 42 / 0.04);
+    --shadow-md: 0 6px 16px rgb(15 23 42 / 0.08), 0 1px 3px rgb(15 23 42 / 0.05);
+    --shadow-lg: 0 16px 40px rgb(15 23 42 / 0.12), 0 2px 6px rgb(15 23 42 / 0.06);
+    --shadow-xl: 0 24px 56px rgb(15 23 42 / 0.16), 0 4px 12px rgb(15 23 42 / 0.08);
+    --shadow-2xl: 0 32px 80px rgb(15 23 42 / 0.22);
+
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    /* Headings use the display cut of Inter; there is no separate serif in the portal. */
+    --font-serif: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .dark {
+    --canvas: 222 16% 6.5%;
+    --background: 222 14% 9%;
+    --foreground: 216 20% 93%;
+    --card: 222 14% 10.5%;
+    --card-foreground: 216 20% 93%;
+    --popover: 222 14% 11.5%;
+    --popover-foreground: 216 20% 93%;
+    --muted: 222 12% 15%;
+    --muted-foreground: 216 10% 67%;
+    --faint: 216 8% 58%;
+    --subtle: 222 14% 10.5%;
+    --border: 222 11% 18%;
+    --input: 222 9% 40%;
+    --primary: 166 58% 56%;
+    --primary-foreground: 222 20% 7%;
+    --secondary: 222 12% 16%;
+    --secondary-foreground: 216 16% 90%;
+    --accent: 222 12% 16%;
+    --accent-foreground: 216 20% 93%;
+    --destructive: 356 68% 62%;
+    --destructive-foreground: 222 20% 7%;
+    --ring: 166 58% 56%;
+
+    /* Re-stepped for the dark surface, not flipped: all >= 7:1 on it. */
+    --tone-warning: 245 185 70;
+    --tone-info: 110 190 245;
+    --tone-success: 100 214 150;
+    --tone-danger: 246 130 135;
+    --tone-accent: 94 214 186;
+    --tone-neutral: 165 172 184;
+
+    --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.45);
+    --shadow: 0 2px 6px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 6px 16px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.03);
+    --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.04);
+    --shadow-xl: 0 24px 64px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.05);
+    --shadow-2xl: 0 32px 90px rgb(0 0 0 / 0.7);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-canvas text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv01', 'cv02', 'cv03', 'cv04', 'cv11', 'ss03';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+
+  /* The serif carries its own optical sizing, so the sans tracking would over-tighten it. */
+  .font-serif {
+    letter-spacing: -0.005em;
+    font-optical-sizing: auto;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* People who asked for less motion get none. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .skeleton {
+    background: linear-gradient(90deg, hsl(var(--muted)) 0%, hsl(var(--accent)) 50%, hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-md;
+  }
+
+  /* A quiet pill for answer values and metadata. */
+  .chip-soft {
+    @apply inline-flex max-w-full items-center rounded-md bg-muted px-2 py-0.5 text-sm leading-6 text-foreground;
+  }
+
+  .kbd {
+    @apply inline-flex h-5 min-w-[20px] items-center justify-center rounded border px-1 font-sans text-2xs font-medium leading-none;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    box-shadow: 0 1px 0 hsl(var(--border));
+  }
+
+  /* Markdown inside help text and short descriptions: no prose margins. */
+  .md-compact :where(p) {
+    margin: 0;
+  }
+  .md-compact :where(p + p) {
+    margin-top: 0.5em;
+  }
+  .md-compact :where(ul, ol) {
+    margin: 0.35em 0 0;
+    padding-left: 1.2em;
+  }
+  .md-compact :where(ul) {
+    list-style: disc;
+  }
+  .md-compact :where(ol) {
+    list-style: decimal;
+  }
+  .md-compact :where(strong) {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  .prose-ks {
+    @apply prose max-w-none dark:prose-invert;
+    --tw-prose-body: hsl(var(--foreground));
+    --tw-prose-headings: hsl(var(--foreground));
+    --tw-prose-bold: hsl(var(--foreground));
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-pre-bg: hsl(var(--muted));
+    --tw-prose-pre-code: hsl(var(--foreground));
+    --tw-prose-quotes: hsl(var(--muted-foreground));
+    --tw-prose-quote-borders: hsl(var(--border));
+    --tw-prose-bullets: hsl(var(--muted-foreground));
+    --tw-prose-counters: hsl(var(--muted-foreground));
+    --tw-prose-hr: hsl(var(--border));
+    --tw-prose-invert-body: hsl(var(--foreground));
+    --tw-prose-invert-headings: hsl(var(--foreground));
+    --tw-prose-invert-bold: hsl(var(--foreground));
+    --tw-prose-invert-links: hsl(var(--primary));
+    --tw-prose-invert-code: hsl(var(--foreground));
+    --tw-prose-invert-pre-bg: hsl(var(--muted));
+    --tw-prose-invert-pre-code: hsl(var(--foreground));
+    --tw-prose-invert-quotes: hsl(var(--muted-foreground));
+    --tw-prose-invert-quote-borders: hsl(var(--border));
+    --tw-prose-invert-bullets: hsl(var(--muted-foreground));
+    --tw-prose-invert-counters: hsl(var(--muted-foreground));
+    --tw-prose-invert-hr: hsl(var(--border));
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .prose-ks :where(p) {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+  .prose-ks :where(h1, h2, h3) {
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+  .prose-ks :where(h1) {
+    font-size: 1.4em;
+  }
+  .prose-ks :where(h2) {
+    font-size: 1.15em;
+  }
+  .prose-ks :where(h3) {
+    font-size: 1em;
+  }
+  .prose-ks :where(ul, ol) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  .prose-ks :where(li) {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+  .prose-ks :where(code):not(:where(pre code)) {
+    @apply rounded bg-muted px-1 py-0.5 text-[0.85em] font-normal;
+  }
+  .prose-ks :where(code)::before,
+  .prose-ks :where(code)::after {
+    content: none;
+  }
+  .prose-ks :where(> :first-child) {
+    margin-top: 0;
+  }
+  .prose-ks :where(> :last-child) {
+    margin-bottom: 0;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* A decorative wash of the program or brand colour behind a header. */
+  .color-wash {
+    background:
+      radial-gradient(120% 140% at 0% 0%, var(--wash, hsl(var(--primary))) 0%, transparent 60%),
+      radial-gradient(90% 120% at 100% 0%, var(--wash-2, hsl(var(--primary) / 0.6)) 0%, transparent 55%);
+  }
+}
+
+/*
+ * shadcn's overlay is black/80 — far heavier than a calm portal should feel.
+ * Outside @layer on purpose: inside it, Tailwind treats .fixed/.inset-0 as utilities and emits variant copies with broken selectors.
+ */
+div[data-state][class*='bg-black'][class*='inset-0'] {
+  background-color: hsl(240 12% 6% / 0.4);
+  backdrop-filter: blur(2px);
+}
+.dark div[data-state][class*='bg-black'][class*='inset-0'] {
+  background-color: hsl(240 12% 2% / 0.6);
+}
+
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+  html.dark {
+    color-scheme: light;
+  }
+  .no-print,
+  [data-sonner-toaster] {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-plain {
+    box-shadow: none !important;
+    border-color: #ddd !important;
+    background: #fff !important;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+  section,
+  dl > div {
+    break-inside: avoid;
+  }
+}

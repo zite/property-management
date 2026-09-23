@@ -1,0 +1,20 @@
+{
+  "name": "property-management",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "zitejs": "0.9.115"
+  },
+  "scripts": {
+    "dev": "sh -c 'set -a; [ -f .env.local ] && . ./.env.local; set +a; yarn workspace @project/property-management dev'",
+    "dev:property-management": "sh -c 'set -a; [ -f .env.local ] && . ./.env.local; set +a; yarn workspace @project/property-management dev'",
+    "dev:resident-portal": "sh -c 'set -a; [ -f .env.local ] && . ./.env.local; set +a; yarn workspace @project/resident-portal dev'",
+    "generate": "zitejs generate",
+    "check": "zitejs check",
+    "build": "yarn workspace @project/property-management build"
+  }
+}

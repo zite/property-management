@@ -1,0 +1,38 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* import React from "react" */
+    "allowSyntheticDefaultImports": true,
+
+    /* Incremental compilation */
+    "incremental": true,
+
+    /* Linting - matching typechecker.ts settings */
+    /* We don't want to be too strict, this is mainly focused on whether the app */
+    /* compiles, or if there are explicit type errors like passing wrong props */
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "strictNullChecks": true
+  },
+  "include": ["src", ".zite", "zite.auth.ts", ".zite/user-extensions.d.ts", ".zite/env.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

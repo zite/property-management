@@ -1,0 +1,9 @@
+{
+  "accessMode": "external",
+  "integrations": {
+    "email-1": {
+      "type": "email",
+      "provider": "zite_email"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+Property Management
+Copyright (c) 2026 Restly, Inc. DBA Zite
+
+This product includes third-party software, listed below with its licensing.
+Everything else in this repository is MIT licensed. See LICENSE.
+
+--------------------------------------------------------------------------------
+shadcn/ui, MIT License
+https://ui.shadcn.com
+
+The files in packages/components/ui/ were generated with the shadcn CLI and have
+been MODIFIED. shadcn/ui is distributed as source you copy into your own tree
+rather than as a dependency, so these files are maintained here rather than
+upstream. Deliberate divergences from upstream are commented where they occur.
+
+Copyright (c) 2023 shadcn
+--------------------------------------------------------------------------------
+Radix UI, MIT License
+https://www.radix-ui.com
+
+Used as a dependency (@radix-ui/react-*). The shadcn/ui components above are
+built on these primitives.
+
+Copyright (c) 2022 WorkOS
+--------------------------------------------------------------------------------
+Lucide, ISC License
+https://lucide.dev
+
+Used as a dependency (lucide-react). Lucide is a fork of Feather Icons.
+
+Copyright (c) 2022 Lucide Contributors
+Copyright (c) 2013-2022 Cole Bemis (Feather Icons, MIT)
+
+--------------------------------------------------------------------------------
+Demo cover images, Unsplash License
+https://unsplash.com/license
+
+The demo seed references Unsplash photographs by URL. They are hot-linked, not
+redistributed here, and are used under the Unsplash License. Remove the demo
+data and no Unsplash content remains in your workspace.
+--------------------------------------------------------------------------------

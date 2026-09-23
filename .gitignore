@@ -1,0 +1,8 @@
+node_modules
+dist
+.env.local
+.tsbuildinfo
+__zite__*
+vite.review.config.ts
+apps/*/src/api/zz*.ts
+yarn-error.log
