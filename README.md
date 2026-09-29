@@ -44,11 +44,12 @@ Two apps share one database:
 | **Property Management** | `apps/property-management` | The office: admins, property managers, leasing agents, maintenance, accountants | Internal (organization members) |
 | **Resident Portal** | `apps/resident-portal` | Residents, applicants, owners and vendors, one sign-in whichever roles their email has | External (public, with sign-in) |
 
-It opens on a populated demo: Cedar & Main Property Management, with 6 properties,
-35 units and 8 months of books, so every screen has something in it the first time
-you look. The person who installs it is linked in as a resident, an owner and a
-vendor contact so each portal area has something to show. Settings has a one-click
-way to delete all of it.
+A new install starts empty, apart from a default chart of accounts and the email
+templates. To look around first, an admin can load a sample company from the bottom
+of **Settings → Organization**: Cedar & Main Property Management, with 6 properties,
+35 units and 8 months of books, so every screen has something in it. The admin who
+loads it is linked in as a resident, an owner and a vendor contact so each portal
+area has something to show. **Settings → Demo data** removes all of it again.
 
 <p align="center">
   <img alt="The office dashboard: occupancy, rent collected, past due, work orders and leases ending" src=".github/assets/home.png">
@@ -109,7 +110,7 @@ way to delete all of it.
 - **Settings.** Organization and brand, rent and late-fee policy (with a worked example),
   leasing policy and the lease template, maintenance and owner approval limits, portal
   text, team and roles, email templates with test sends, the daily automation (and run
-  now), integrations, and removing the demo data.
+  now), integrations, and loading or removing the sample data.
 - **Everywhere:** ⌘K command menu and search, `C` for a new work order, `⇧P` to receive a
   payment, G-then-letter navigation, `?` for every shortcut, optimistic edits, light and
   dark themes, and layouts that work on a phone.
@@ -164,9 +165,12 @@ claude mcp add --transport http zite https://mcp.zite.com/mcp
 >    resolves.
 > 6. `check_app` both apps, `commit`, then `publish_app` both.
 
-**3. Open the office app.** It seeds the demo on first load, which takes a couple of
-minutes because it posts eight months of books. When you are ready for real data,
-use **Settings → Data → Remove demo data**.
+**3. Open the office app.** The first person to open it becomes its Admin and lands
+in an empty workspace. To try it with data first, press **Load sample data** at the
+bottom of **Settings → Organization**. That takes a couple of minutes because it posts
+eight months of books, and it is only offered while the workspace has no properties,
+people or transactions of its own. When you are ready for real data, remove it in
+**Settings → Demo data**.
 
 <p align="center">
   <img alt="Accounting: the register, bank activity and owner distributions" src=".github/assets/accounting.png">
@@ -268,7 +272,7 @@ so every endpoint re-parses its input.
 and unset text is `''`, never `NULL` (`ref()` in `server/sql.ts` normalises it).
 
 **Writes are sequential.** Zite rate-limits bursts of parallel database writes, so bulk
-operations (seeding, bulk charges, announcements, demo removal) write one at a time or in
+operations (loading sample data, bulk charges, announcements, demo removal) write one at a time or in
 `bulkCreate` batches of 100, and long jobs resume across calls under the 150-second
 endpoint limit.
 

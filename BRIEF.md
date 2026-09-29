@@ -19,15 +19,20 @@ Two apps share one database (`zite.schema.json`, 30 tables):
 | **Property Management** `apps/property-management` | Staff: admins, property managers, leasing agents, maintenance, accountants | Internal |
 | **Resident Portal** `apps/resident-portal` | Residents, applicants, owners, vendors | External, sign-in |
 
-Demo company (seeded on first open by an Admin): **Cedar & Main Property
+Demo company (loaded by an Admin from the bottom of Settings → Organization, only
+into an empty workspace; nothing loads it on its own): **Cedar & Main Property
 Management**, Denver. 6 properties, 35 units, 4 owners, 32 active leases + 1
 pending + 4 ended, 8 months of books, 32 work orders, 14 vendors, listings,
-inquiries, applications, messages, tasks, documents, inspections. The person
-who installs it (in the harness: `dominic@fillout.com`) is linked in as the
+inquiries, applications, messages, tasks, documents, inspections. The admin
+who loads it (in the harness: `dominic@fillout.com`) is linked in as the
 resident of **The Alder 201**, the owner of **48 Cottonwood Lane**, and the
 contact for vendor **Summit Appliance Repair**, so every portal area has data.
 
 Seed code: `apps/property-management/src/seed/*`, `apps/property-management/src/api/seedWorkspace.ts`.
+Who may load it, and what counts as the workspace's own content, is in
+`apps/property-management/src/server/sampleData.ts`; removal is `src/api/clearDemoData.ts`.
+A fresh install needs no seed to work: bootstrap creates the Settings row, the first
+Admin, the chart of accounts and the email templates.
 
 ---
 

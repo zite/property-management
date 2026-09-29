@@ -32,8 +32,10 @@ const VIEWS: Record<SectionKey, ComponentType> = {
 export function SettingsPage() {
   const ws = useWorkspace();
   const { section } = useParams();
-  const sections = SECTIONS.filter(s => !s.need || ws.can(s.need));
-  const current = sections.find(s => s.key === section);
+  const allowed = SECTIONS.filter(s => !s.need || ws.can(s.need));
+  const current = allowed.find(s => s.key === section);
+  // Demo data is only listed while the sample is loaded (and stays put while it's open, so finishing a removal doesn't move you).
+  const sections = allowed.filter(s => s.key !== 'demo' || Boolean(ws.settings.seededAt) || s.key === current?.key);
   useDocumentTitle(current ? `${current.label} · Settings` : 'Settings');
 
   if (!current) return <Navigate to={sectionPath(ws.can('settings.manage') ? 'general' : 'profile')} replace />;

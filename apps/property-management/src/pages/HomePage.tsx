@@ -33,7 +33,7 @@ function tilesFor(d: Dashboard, ws: Workspace): Tile[] {
     },
     vacant: {
       key: 'vacant', label: 'Vacant units', to: '/properties', value: f.units.vacant,
-      hint: f.units.vacant ? `${percent(f.units.vacant, f.units.active)}% of the portfolio` : 'Every unit is leased',
+      hint: f.units.vacant ? `${percent(f.units.vacant, f.units.active)}% of the portfolio` : f.units.active ? 'Every unit is leased' : 'No units yet',
     },
     collected: f.collections ? {
       key: 'collected', label: `Rent collected · ${periodLabel(f.collections.period, true).split(' ')[0]}`, to: '/accounting/receivables',

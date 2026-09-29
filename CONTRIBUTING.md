@@ -20,7 +20,8 @@ Please open an issue before a large change, so we can agree the shape first.
 Endpoints in `src/api/` run on Zite's runtime, not on your machine, so you need a
 workspace of your own before the app will load data. Install the template into one
 by following [Install it in your own workspace](README.md#install-it-in-your-own-workspace).
-It takes a few minutes and gives you the demo data to work against.
+It takes a few minutes. For data to work against, load the sample company from
+the bottom of Settings → Organization.
 
 Then:
 

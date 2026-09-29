@@ -7,30 +7,38 @@ import { renderLeaseTerms } from '@project/shared/leaseDocument';
 import { leaseLabel, workOrderRef, applicationRef } from '@project/shared/leases';
 import { activityRecord, type ActivityInput } from '@project/shared/server/activity';
 import { colorFor, getActor } from '@project/shared/server/actor';
-import { getChart, type SystemKey } from '@project/shared/server/accounts';
+import { DEFAULT_CHART, getChart, type SystemKey } from '@project/shared/server/accounts';
 import { insertAllocations, insertTransactions } from '@project/shared/server/ledger';
-import { DEFAULT_LEASE_TEMPLATE, getSettings } from '@project/shared/server/settings';
+import { DEFAULT_BRAND, DEFAULT_LEASE_TEMPLATE, DEFAULT_SETTINGS, getSettings } from '@project/shared/server/settings';
 import { ensureWorkspaceDefaults } from '@project/shared/server/setup';
 import { chunked, num, str } from '@project/shared/server/sql';
+import { PHASE_STALE_MS, runningStatus, sampleDataState } from '../server/sampleData';
 import {
   ANNOUNCEMENTS, APPLICATIONS, DOCUMENTS, INQUIRIES, OWNER_THREADS, SAVED_VIEWS, TASKS, TENANT_THREADS, VENDOR_THREADS, WORK_ORDER_COMMENTS, at, type ThreadMessage,
 } from '../seed/comms';
 import { simulateLedger } from '../seed/ledger';
 import {
-  MEMBERS, ORG, PROPERTIES, SAMPLE_PDF, SCHEDULES, SEED_TIMEZONE, VACANCIES, VENDORS, img, inspectionPlans, leasePlans, listingPlans, owners, workOrderPlans, type LeasePlan, type SeedActor,
+  MEMBERS, ORG, PROPERTIES, SAMPLE_PDF, SCHEDULES, SEED_ADMIN_PROFILE, SEED_BANKS, SEED_TIMEZONE, VACANCIES, VENDORS, img, inspectionPlans, leasePlans, listingPlans, owners, workOrderPlans, type LeasePlan, type SeedActor,
 } from '../seed/model';
 
 /**
- * Build the demo company the first time an admin opens the app.
+ * Load the demo company into an empty workspace. An admin starts it from
+ * Settings → Organization; nothing calls this on its own.
  *
- * The seed runs in phases — portfolio and people, then the ledger, then its
- * allocations, then conversations — one per call, and the ledger phases stop
+ * It refuses to start while the demo is loaded or once the workspace has
+ * content of its own (see server/sampleData.ts), so a stray second call never
+ * mixes a second demo into anything. Company details are filled in only where
+ * the organization still has the defaults.
+ *
+ * The seed runs in phases (portfolio and people, then the ledger, then its
+ * allocations, then conversations), one per call, and the ledger phases stop
  * themselves well inside the platform's time limit and resume where they left
- * off. The app shows progress and calls again until `done`.
+ * off. The settings control shows progress and calls again until `done`.
  *
- * Seed Status in Settings records the last finished phase. Every phase
- * rebuilds the same model from a fixed seed and finds earlier phases' rows by
- * natural key, so a retry never duplicates anything.
+ * `seededAt` records when loading started; Seed Status records the last
+ * finished phase. Every phase rebuilds the same model from a fixed seed and
+ * finds earlier phases' rows by natural key, so a retry never duplicates
+ * anything.
  */
 
 const PHASES = ['', 'org', 'ledger', 'allocations', 'done'] as const;
@@ -43,7 +51,7 @@ const MESSAGE: Record<string, string> = {
 };
 
 export default createEndpoint({
-  description: 'Create the demo property management company, one phase per call',
+  description: 'Load the sample property management company into an empty workspace, one phase per call (admins)',
   authenticated: true,
   inputSchema: z.object({}),
   outputSchema: z.object({ done: z.boolean(), phase: z.string(), progress: z.number(), message: z.string() }),
@@ -51,51 +59,63 @@ export default createEndpoint({
     const started = Date.now();
     const deadline = started + 95_000;
     const actor = await getActor(context);
-    if (actor.role !== 'Admin') throw new ZiteError('Only an admin can set up the demo', 'FORBIDDEN');
+    if (actor.role !== 'Admin') throw new ZiteError('Only an admin can load the sample data', 'FORBIDDEN');
     const settings = await getSettings();
-    const { rows } = await zite.sql({ query: `SELECT "seedStatus", "seededAt" FROM "Settings" WHERE id::text = $1`, params: [settings.id] });
-    const status = String(rows[0]?.seedStatus ?? '');
-    const seededAt = rows[0]?.seededAt ? Date.parse(String(rows[0].seededAt)) : 0;
+    const state = await sampleDataState(settings);
+    const { phase, running, since } = state.status;
     const today = todayIn(SEED_TIMEZONE);
     const me: SeedActor = { id: actor.id, name: actor.name, email: actor.email };
+    const mark = (seedStatus: string) => zite.settings.update({ id: settings.id, record: { seedStatus } });
 
-    if (status === 'done') return { done: true, phase: 'done', progress: 1, message: MESSAGE.done };
-    if (status.endsWith(':running')) {
-      // Another tab is on it; a phase left "running" for ten minutes died and is retried.
-      if (Date.now() - seededAt < 10 * 60_000) return { done: false, phase: status, progress: 0, message: 'Setting up in another tab…' };
-    }
-    if (!status || status === 'org:running') {
-      const { rows: existing } = await zite.sql({ query: `SELECT (SELECT COUNT(*) FROM "Properties") AS p, (SELECT COUNT(*) FROM "Leases") AS l`, params: [] });
-      if (num(existing[0]?.p) > 0 || num(existing[0]?.l) > 0) {
-        // Real data already here: never mix a demo into it.
-        await zite.settings.update({ id: settings.id, record: { seedStatus: 'done' } });
-        return { done: true, phase: 'done', progress: 1, message: MESSAGE.done };
-      }
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'org:running', seededAt: new Date().toISOString() } });
+    // Another tab is on it; a phase left running for ten minutes died and is retried.
+    if (running && Date.now() - since < PHASE_STALE_MS) return { done: false, phase, progress: 0, message: 'Loading in another tab…' };
+
+    if (!state.unfinished) {
+      if (state.loaded) throw new ZiteError('The sample data is already loaded. Remove it in Settings → Demo data before loading it again.', 'CONFLICT');
+      if (state.hasContent) throw new ZiteError('Sample data can only be loaded into an empty workspace, and this one already has properties, people or transactions of its own.', 'CONFLICT');
+      const claim = runningStatus('org');
+      await zite.settings.update({ id: settings.id, record: { seedStatus: claim, seededAt: new Date().toISOString() } });
+      // Two first calls in the same instant: only the one whose claim stuck goes on.
+      const { rows: after } = await zite.sql({ query: `SELECT "seedStatus" FROM "Settings" WHERE id::text = $1`, params: [settings.id] });
+      if (str(after[0]?.seedStatus) !== claim) return { done: false, phase: 'org:running', progress: 0, message: 'Loading in another tab…' };
       await phaseOrg(me, settings.id, today);
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'org' } });
+      await mark('org');
       return { done: false, phase: 'org', progress: 0.3, message: MESSAGE.org };
     }
-    if (status === 'org' || status === 'ledger:running') {
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'ledger:running', seededAt: new Date().toISOString() } });
+    if (!state.resumable) throw new ZiteError('Loading the sample data stopped too long ago to pick up again. Remove what it added in Settings → Demo data, then load it again.', 'CONFLICT');
+
+    if (phase === 'org:running') {
+      // The first phase died partway. Once it had written the portfolio a rerun would duplicate it, so keep what's there for Demo data to remove.
+      const { rows: existing } = await zite.sql({ query: `SELECT COUNT(*) AS p FROM "Properties"`, params: [] });
+      if (num(existing[0]?.p) > 0) {
+        await mark('done');
+        return { done: true, phase: 'done', progress: 1, message: MESSAGE.done };
+      }
+      await mark(runningStatus('org'));
+      await phaseOrg(me, settings.id, today);
+      await mark('org');
+      return { done: false, phase: 'org', progress: 0.3, message: MESSAGE.org };
+    }
+    if (phase === 'org' || phase === 'ledger:running') {
+      await mark(runningStatus('ledger'));
       const res = await phaseLedger(me, today, deadline);
-      await zite.settings.update({ id: settings.id, record: { seedStatus: res.complete ? 'ledger' : 'org' } });
+      await mark(res.complete ? 'ledger' : 'org');
       return { done: false, phase: res.complete ? 'ledger' : 'org', progress: 0.3 + res.progress * 0.4, message: res.complete ? MESSAGE.ledger : MESSAGE.org };
     }
-    if (status === 'ledger' || status === 'allocations:running') {
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'allocations:running', seededAt: new Date().toISOString() } });
+    if (phase === 'ledger' || phase === 'allocations:running') {
+      await mark(runningStatus('allocations'));
       const res = await phaseAllocations(me, today, deadline);
-      await zite.settings.update({ id: settings.id, record: { seedStatus: res.complete ? 'allocations' : 'ledger' } });
+      await mark(res.complete ? 'allocations' : 'ledger');
       return { done: false, phase: res.complete ? 'allocations' : 'ledger', progress: 0.7 + res.progress * 0.15, message: res.complete ? MESSAGE.allocations : MESSAGE.ledger };
     }
-    if (status === 'allocations' || status === 'comms:running') {
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'comms:running', seededAt: new Date().toISOString() } });
+    if (phase === 'allocations' || phase === 'comms:running') {
+      await mark(runningStatus('comms'));
       await phaseComms(me, today);
-      await zite.settings.update({ id: settings.id, record: { seedStatus: 'done' } });
+      await mark('done');
       return { done: true, phase: 'done', progress: 1, message: MESSAGE.done };
     }
     void PHASES;
-    return { done: true, phase: status, progress: 1, message: MESSAGE.done };
+    return { done: true, phase, progress: 1, message: MESSAGE.done };
   },
 });
 
@@ -167,16 +187,41 @@ function leaseOn(plans: LeasePlan[], unit: string, day: string) {
 
 // ── Phase 1: portfolio, people, work and leasing ─────────────────────────
 
+/**
+ * The demo's company details and policies, written only where the
+ * organization still has the value a fresh install starts with (empty, or the
+ * default). Anything an admin already set is theirs and stays.
+ */
+async function applyOrgDetails(settingsId: string) {
+  const { rows } = await zite.sql({ query: `SELECT * FROM "Settings" WHERE id::text = $1`, params: [settingsId] });
+  const raw = rows[0] ?? {};
+  const defaults: Record<string, unknown> = { ...DEFAULT_SETTINGS, brandColor: DEFAULT_BRAND };
+  const patch: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(ORG)) {
+    const current = raw[key];
+    const fallback = defaults[key];
+    const untouched = current == null || current === '' || (fallback != null && (typeof fallback === 'number' ? num(current, NaN) === fallback : String(current) === String(fallback)));
+    if (untouched) patch[key] = value;
+  }
+  if (Object.keys(patch).length) await zite.settings.update({ id: settingsId, record: patch as never });
+}
+
 async function phaseOrg(actor: SeedActor, settingsId: string, today: string) {
   await ensureWorkspaceDefaults();
   const chart = await getChart({ fresh: true });
   const now = new Date().toISOString();
-  await zite.settings.update({ id: settingsId, record: { ...ORG, onlinePayments: true, allowPartialPayments: true, maintenanceRequests: true, applicationsOpen: true, leaseTemplate: DEFAULT_LEASE_TEMPLATE, defaultRole: 'Property Manager' } });
-  await zite.accounts.update({ id: chart.key('operating_bank').id, record: { name: 'Operating — Front Range Community Bank', bankName: 'Front Range Community Bank', accountLast4: '4821' } });
-  await zite.accounts.update({ id: chart.key('deposit_bank').id, record: { name: 'Deposit Trust — Front Range Community Bank', bankName: 'Front Range Community Bank', accountLast4: '7730' } });
+  await applyOrgDetails(settingsId);
+  // Name the two bank accounts only while they still have the default chart's names and no bank details.
+  for (const [key, bank] of Object.entries(SEED_BANKS) as Array<[SystemKey, (typeof SEED_BANKS)[string]]>) {
+    const account = chart.key(key);
+    const def = DEFAULT_CHART.find(d => d.systemKey === key);
+    if (def && account.name === def.name && !account.bankName && !account.accountLast4) {
+      await zite.accounts.update({ id: account.id, record: { name: bank.name, bankName: bank.bankName, accountLast4: bank.last4 } });
+    }
+  }
 
-  const { rows: meRow } = await zite.sql({ query: `SELECT "title" FROM "Members" WHERE id::text = $1`, params: [actor.id] });
-  if (!str(meRow[0]?.title)) await zite.members.update({ id: actor.id, record: { title: 'Director of Property Management', phone: '(303) 555-0140' } });
+  const { rows: meRow } = await zite.sql({ query: `SELECT "title", "phone" FROM "Members" WHERE id::text = $1`, params: [actor.id] });
+  if (!str(meRow[0]?.title) && !str(meRow[0]?.phone)) await zite.members.update({ id: actor.id, record: SEED_ADMIN_PROFILE });
   await zite.members.bulkCreate({
     records: MEMBERS.map((m, i) => ({ name: m.name, email: m.email, role: m.role, status: 'Active', color: colorFor(m.email), title: m.title, phone: m.phone, lastSeenAt: at(today, i % 3, 15 + i) })),
   });

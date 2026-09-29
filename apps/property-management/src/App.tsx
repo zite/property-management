@@ -1,7 +1,5 @@
-import { useQueryClient } from '@tanstack/react-query';
-import { lazy, Suspense, useEffect, useRef, useState, type ComponentType, type ReactNode } from 'react';
+import { lazy, Suspense, useEffect, type ComponentType, type ReactNode } from 'react';
 import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
-import { seedWorkspace } from 'zitejs/api';
 import { Toaster } from '@project/components/ui/sonner';
 import { TooltipProvider } from '@project/components/ui/tooltip';
 import type { Capability } from '@project/shared/roles';
@@ -78,7 +76,7 @@ function Page({ page: { Component }, need }: { page: { Component: ComponentType 
   );
 }
 
-function BootScreen({ state, onRetry, message, progress }: { state: 'loading' | 'seeding' | 'error'; onRetry: () => void; message?: string; progress?: number }) {
+function BootScreen({ state, onRetry, message }: { state: 'loading' | 'error'; onRetry: () => void; message?: string }) {
   return (
     <div className="grid h-[100dvh] place-items-center bg-canvas px-6">
       <div className="flex max-w-sm flex-col items-center text-center animate-fade-up">
@@ -91,14 +89,9 @@ function BootScreen({ state, onRetry, message, progress }: { state: 'loading' | 
           </>
         ) : (
           <>
-            <h1 className="text-[15px] font-medium">{state === 'seeding' ? 'Setting up your workspace' : 'Loading your workspace'}</h1>
-            <p className="mt-1 min-h-10 text-[14px] text-muted-foreground">{state === 'seeding' ? message ?? 'Building a demo company with properties, residents and eight months of books. This takes a moment, once.' : ''}</p>
-            <div className="mt-2 h-1 w-48 overflow-hidden rounded-full bg-muted">
-              {state === 'seeding' && progress != null ? (
-                <div className="h-full rounded-full bg-primary/80 transition-[width] duration-700" style={{ width: `${Math.max(6, progress * 100)}%` }} />
-              ) : (
-                <div className="h-full w-1/3 rounded-full bg-primary/70" style={{ animation: 'boot-slide 1.2s ease-in-out infinite' }} />
-              )}
+            <h1 className="text-[15px] font-medium">Loading your workspace</h1>
+            <div className="mt-4 h-1 w-48 overflow-hidden rounded-full bg-muted">
+              <div className="h-full w-1/3 rounded-full bg-primary/70" style={{ animation: 'boot-slide 1.2s ease-in-out infinite' }} />
             </div>
             <style>{'@keyframes boot-slide{0%{transform:translateX(-100%)}100%{transform:translateX(300%)}}'}</style>
           </>
@@ -114,41 +107,14 @@ function LegacyRedirect({ to }: { to: (params: Record<string, string | undefined
 }
 
 function Boot() {
-  const qc = useQueryClient();
   const { data, isError, error, refetch } = useBootstrap();
-  const [seeding, setSeeding] = useState<{ message?: string; progress?: number } | null>(null);
-  const [seedError, setSeedError] = useState<string | null>(null);
-  const started = useRef(false);
   usePrefetchPages();
 
-  // A fresh install builds its demo company on first open, started by an admin; phases run until done.
-  useEffect(() => {
-    if (!data?.seed.needed || started.current || data.me.role !== 'Admin') return;
-    started.current = true;
-    setSeeding({ progress: 0.02 });
-    (async () => {
-      try {
-        for (let i = 0; i < 40; i++) {
-          const res = await seedWorkspace({});
-          setSeeding({ message: res.message, progress: res.progress });
-          if (res.done) break;
-          if (res.phase.endsWith(':running')) await new Promise(r => setTimeout(r, 2500));
-        }
-        await qc.invalidateQueries();
-      } catch (e) {
-        setSeedError(errorMessage(e, 'Setting up the demo didn’t finish. Try again.'));
-      } finally {
-        setSeeding(null);
-      }
-    })();
-  }, [data, qc]);
-
-  if (isError || seedError) {
-    const refusal = isError ? errorMessage(error, '') : seedError ?? '';
-    return <BootScreen state="error" message={/deactivated|didn’t finish/i.test(refusal) ? refusal : undefined} onRetry={() => { setSeedError(null); started.current = false; void refetch(); }} />;
+  if (isError) {
+    const refusal = errorMessage(error, '');
+    return <BootScreen state="error" message={/deactivated/i.test(refusal) ? refusal : undefined} onRetry={() => void refetch()} />;
   }
   if (!data) return <BootScreen state="loading" onRetry={() => void refetch()} />;
-  if (seeding || (data.seed.needed && data.me.role === 'Admin')) return <BootScreen state="seeding" message={seeding?.message} progress={seeding?.progress} onRetry={() => void refetch()} />;
 
   return (
     <WorkspaceProvider data={data}>

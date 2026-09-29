@@ -48,7 +48,7 @@ export type SectionKey =
 
 export type SectionDef = { key: SectionKey; label: string; group: string; need?: Capability; description: string };
 
-/** The settings sections in nav order. `need` hides a section from roles that can't use it. */
+/** The settings sections in nav order. `need` hides a section from roles that can't use it; Demo data is listed only while the sample is loaded. */
 export const SECTIONS: SectionDef[] = [
   { key: 'profile', label: 'Profile', group: 'Account', description: 'How you appear to your team, and how the app looks for you.' },
   { key: 'general', label: 'Organization', group: 'Company', need: 'settings.manage', description: 'Your company’s name, brand and contact details, used in emails and the portal.' },
@@ -61,7 +61,7 @@ export const SECTIONS: SectionDef[] = [
   { key: 'templates', label: 'Email templates', group: 'Workspace', need: 'settings.manage', description: 'The emails sent automatically, and templates for writing your own.' },
   { key: 'automation', label: 'Automation', group: 'Workspace', need: 'settings.manage', description: 'The work that runs every morning so nobody has to remember it.' },
   { key: 'integrations', label: 'Integrations', group: 'Workspace', need: 'settings.manage', description: 'Email, AI and online payments.' },
-  { key: 'demo', label: 'Demo data', group: 'Workspace', need: 'settings.manage', description: 'The sample company that was set up, and removing it when you’re ready.' },
+  { key: 'demo', label: 'Demo data', group: 'Workspace', need: 'settings.manage', description: 'The sample company you loaded, and removing it when you’re ready.' },
 ];
 
 export const sectionPath = (key: SectionKey) => `/settings/${key}`;

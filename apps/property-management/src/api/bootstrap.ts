@@ -48,9 +48,8 @@ export default createEndpoint({
       rentDueDay: z.number(), gracePeriodDays: z.number(), lateFeeType: z.string(), lateFeeAmount: z.number(), lateFeePercent: z.number(), lateFeeMax: z.number().nullable(),
       managementFeePercent: z.number(), ownerApprovalThreshold: z.number().nullable(), applicationFee: z.number(), incomeMultiple: z.number(), renewalNoticeDays: z.number(),
       onlinePayments: z.boolean(), maintenanceRequests: z.boolean(), applicationsOpen: z.boolean(), portalUrl: z.string().nullable(), staffAppUrl: z.string().nullable(),
-      automationRanAt: z.string().nullable(), seedStatus: z.string(), seededAt: z.string().nullable(),
+      automationRanAt: z.string().nullable(), seededAt: z.string().nullable(),
     }),
-    seed: z.object({ needed: z.boolean(), status: z.string() }),
     integrations: z.object({ ai: z.boolean(), email: z.boolean() }),
     members: z.array(Member),
     owners: z.array(Owner),
@@ -73,8 +72,7 @@ export default createEndpoint({
     const today = todayIn(settings.timezone);
     const chart = await getChart();
 
-    const [seedRow, members, owners, properties, units, leases, vendors, views, templates, counts] = await Promise.all([
-      zite.sql({ query: `SELECT "seedStatus" FROM "Settings" WHERE id::text = $1`, params: [settings.id] }),
+    const [members, owners, properties, units, leases, vendors, views, templates, counts] = await Promise.all([
       zite.sql({ query: `SELECT id, "name", "email", "role", "status", "color", "avatarUrl", "title", "phone", "lastSeenAt" FROM "Members" ORDER BY "name" ASC`, params: [] }),
       zite.sql({ query: `SELECT id, "name", "ownerType", "contactName", "email", "phone", "color", "status", "portalEnabled", "managementFeePercent", "distributionMethod" FROM "Owners" ORDER BY "name" ASC`, params: [] }),
       zite.sql({ query: `SELECT id, "name", "code", "propertyType", "status", "street", "city", "state", "postalCode", "ownerId", "managerId", "bankAccountId", "color", "photoUrl", "reserveAmount", "managementFeePercent" FROM "Properties" ORDER BY "name" ASC`, params: [] }),
@@ -128,8 +126,6 @@ export default createEndpoint({
     for (const u of unitList) if (!u.archived) byProperty.set(u.propertyId, [...(byProperty.get(u.propertyId) ?? []), u]);
 
     const c = counts.rows[0] ?? {};
-    const seedStatus = str(seedRow.rows[0]?.seedStatus) ?? '';
-    const empty = properties.rows.length === 0;
     return {
       today,
       me: { id: actor.id, name: actor.name, email: actor.email, role: actor.role, capabilities: capabilitiesFor(actor.role) },
@@ -138,10 +134,8 @@ export default createEndpoint({
         rentDueDay: settings.rentDueDay, gracePeriodDays: settings.gracePeriodDays, lateFeeType: settings.lateFeeType, lateFeeAmount: settings.lateFeeAmount, lateFeePercent: settings.lateFeePercent, lateFeeMax: settings.lateFeeMax,
         managementFeePercent: settings.managementFeePercent, ownerApprovalThreshold: settings.ownerApprovalThreshold, applicationFee: settings.applicationFee, incomeMultiple: settings.incomeMultiple, renewalNoticeDays: settings.renewalNoticeDays,
         onlinePayments: settings.onlinePayments, maintenanceRequests: settings.maintenanceRequests, applicationsOpen: settings.applicationsOpen, portalUrl: settings.portalUrl, staffAppUrl: settings.staffAppUrl,
-        automationRanAt: settings.automationRanAt, seedStatus, seededAt: settings.seededAt,
+        automationRanAt: settings.automationRanAt, seededAt: settings.seededAt,
       },
-      // A fresh install with no portfolio gets the demo, started by its first admin. Once real data exists it never runs.
-      seed: { needed: seedStatus !== 'done' && (empty || seedStatus !== ''), status: seedStatus },
       integrations: { ai: isAiConfigured(), email: true },
       members: members.rows.map(m => ({ id: String(m.id), name: str(m.name) ?? '', email: str(m.email) ?? '', role: str(m.role) ?? 'Property Manager', status: str(m.status) || 'Active', color: str(m.color) || '#64748b', avatarUrl: ref(m.avatarUrl), title: str(m.title) ?? '', phone: str(m.phone) ?? '', lastSeenAt: iso(m.lastSeenAt) })),
       owners: owners.rows.map(o => ({ id: String(o.id), name: str(o.name) ?? '', ownerType: str(o.ownerType) || 'Individual', contactName: str(o.contactName) ?? '', email: str(o.email) ?? '', phone: str(o.phone) ?? '', color: str(o.color) || '#64748b', status: str(o.status) || 'Active', portalEnabled: bool(o.portalEnabled), managementFeePercent: numOrNull(o.managementFeePercent), distributionMethod: str(o.distributionMethod) || 'ACH' })),

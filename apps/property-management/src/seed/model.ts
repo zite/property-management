@@ -10,9 +10,9 @@ import { defaultAreas, type InspectionArea } from '@project/shared/inspections';
  * number, a vendor's name). A template installed a year from now still has
  * rent due this month, a lease expiring soon and a work order from this morning.
  *
- * People use reserved example domains — except the person who installs it,
- * who is linked in as a resident, an owner and a vendor so the portal has
- * something to show them the moment they sign in.
+ * People use reserved example domains, except the admin who loads it, who is
+ * linked in as a resident, an owner and a vendor so the portal has something
+ * to show them the moment they sign in.
  */
 
 export const SEED_TIMEZONE = 'America/Denver';
@@ -31,6 +31,15 @@ export function prng(seed: number) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+/** What the seed names the default chart's two bank accounts, and removing the demo puts back. */
+export const SEED_BANKS: Record<string, { name: string; bankName: string; last4: string }> = {
+  operating_bank: { name: 'Operating — Front Range Community Bank', bankName: 'Front Range Community Bank', last4: '4821' },
+  deposit_bank: { name: 'Deposit Trust — Front Range Community Bank', bankName: 'Front Range Community Bank', last4: '7730' },
+};
+
+/** The profile the seed gives the admin who loads it, when theirs is still empty. */
+export const SEED_ADMIN_PROFILE = { title: 'Director of Property Management', phone: '(303) 555-0140' };
 
 export const ORG = {
   organizationName: 'Cedar & Main Property Management',

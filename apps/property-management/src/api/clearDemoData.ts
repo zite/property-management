@@ -7,19 +7,23 @@ import { DEFAULT_CHART, invalidateChart } from '@project/shared/server/accounts'
 import { DEFAULT_SETTINGS, getSettings } from '@project/shared/server/settings';
 import { iso, num, pool, str, withRetry } from '@project/shared/server/sql';
 import { SAVED_VIEWS } from '../seed/comms';
-import { ORG } from '../seed/model';
+import { ORG, PROPERTIES, SEED_ADMIN_PROFILE, SEED_BANKS } from '../seed/model';
 import { parseInput } from '../server/input';
+import { SAMPLE_WINDOW_MS } from '../server/sampleData';
 
 /**
  * Remove the demo company so the workspace can run a real one.
  *
  * What counts as demo: rows the seed inserted, found by their system
  * `created_at` — its business dates are backdated and can't be trusted.
- * `Settings.seededAt` marks the start of the seed's last phase and the saved
- * views are the last thing that phase writes, so the window closes a minute
- * after those views (or 15 minutes after `seededAt` if they're gone). Earlier
- * phases ran before `seededAt`, when the workspace had no data of its own. Teammates additionally need a
- * reserved example-domain email, and the admin running this is never removed.
+ * `Settings.seededAt` marks when loading started, so the window opens a minute
+ * before it (clock skew between the endpoint and the database) and anything
+ * older is never touched. (On installs seeded automatically, before loading
+ * became opt-in, `seededAt` is the start of the last phase instead, and the
+ * demo's own properties date the start.) The saved views are the last thing the seed writes,
+ * so the window closes a minute after those views (or 30 minutes after
+ * `seededAt` if they're gone). Teammates additionally need a reserved
+ * example-domain email, and the admin running this is never removed.
  * Rows added later *under* a demo record (a payment on a demo lease, a note on
  * a demo work order) go with it, or they'd be orphans; real records that merely
  * point at a demo owner, vendor or teammate are kept and that link is cleared.
@@ -32,7 +36,6 @@ import { parseInput } from '../server/input';
  * again resumes — every step re-finds what is left. `dryRun` only counts.
  */
 
-const WINDOW_MS = 15 * 60_000;
 const AFTER_LAST_WRITE_MS = 60_000;
 /** Reserved example domains (and their subdomains) — plain LIKEs rather than a regex, for the widest SQL support. */
 const EXAMPLE_EMAIL = ['com', 'org', 'net'].map(tld => `LOWER("email") LIKE '%@example.${tld}' OR LOWER("email") LIKE '%.example.${tld}'`).join(' OR ');
@@ -40,8 +43,8 @@ const BATCH = 250;
 const SOFT_BUDGET_MS = 85_000;
 const HARD_BUDGET_MS = 120_000;
 
-// $1 = end of the seed window, $2 = the acting admin.
-const W = `created_at <= $1::timestamptz`;
+// $1 = end of the seed window, $2 = the acting admin, $3 = when loading started (a minute of skew is allowed before it).
+const W = `(created_at >= $3::timestamptz - INTERVAL '1 minute' AND created_at <= $1::timestamptz)`;
 const any = (col: string, sets: string[]) => sets.map(s => `"${col}" IN (SELECT id FROM ${s})`).join(' OR ');
 
 const CTES = `
@@ -122,11 +125,6 @@ const DELETE_TABLES = STEPS.filter((s): s is Delete => s.kind === 'delete');
 
 /** The organization details the seed filled in; reset only while they still hold the demo's value. */
 const ORG_IDENTITY = ['organizationName', 'legalName', 'address', 'phone', 'emergencyPhone', 'officeHours', 'supportEmail', 'websiteUrl', 'emailSignature', 'paymentInstructions', 'portalIntro'] as const;
-const SEED_BANKS: Record<string, { name: string; bankName: string; last4: string }> = {
-  operating_bank: { name: 'Operating — Front Range Community Bank', bankName: 'Front Range Community Bank', last4: '4821' },
-  deposit_bank: { name: 'Deposit Trust — Front Range Community Bank', bankName: 'Front Range Community Bank', last4: '7730' },
-};
-const SEED_ADMIN_PROFILE = { title: 'Director of Property Management', phone: '(303) 555-0140' };
 
 const accessor = (table: string) => (zite as unknown as Record<string, { delete: (p: { id: string }) => Promise<unknown>; update: (p: { id: string; record: Record<string, unknown> }) => Promise<unknown> }>)[table.charAt(0).toLowerCase() + table.slice(1)];
 
@@ -154,14 +152,22 @@ export default createEndpoint({
     const settings = await getSettings();
     const seededAt = settings.seededAt;
     if (!seededAt) return { done: true, hasDemo: false, seededAt: null, deleted: 0, remaining: 0, counts: [] };
-    const latest = Date.parse(seededAt) + WINDOW_MS;
+    const latest = Date.parse(seededAt) + SAMPLE_WINDOW_MS;
     const { rows: marker } = await zite.sql({
       query: `SELECT MAX(created_at) AS at FROM "Views" WHERE "name" IN (${SAVED_VIEWS.map((_, i) => `$${i + 3}`).join(', ')}) AND created_at >= $1::timestamptz AND created_at <= $2::timestamptz`,
       params: [seededAt, new Date(latest).toISOString(), ...SAVED_VIEWS.map(v => v.name)],
     });
     const seedEnd = marker[0]?.at ? Date.parse(String(marker[0].at)) : NaN;
     const cutoff = new Date(Number.isFinite(seedEnd) ? Math.min(latest, seedEnd + AFTER_LAST_WRITE_MS) : latest).toISOString();
-    const params = [cutoff, actor.id];
+    // Installs seeded before loading was opt-in moved `seededAt` to the start of the seed's last phase, so the
+    // demo's own properties (written seconds into the first phase, under codes nothing else can hold) date the start there.
+    const { rows: first } = await zite.sql({
+      query: `SELECT MIN(created_at) AS at FROM "Properties" WHERE "code" IN (${PROPERTIES.map((_, i) => `$${i + 3}`).join(', ')}) AND created_at >= $1::timestamptz - INTERVAL '1 hour' AND created_at <= $2::timestamptz`,
+      params: [seededAt, cutoff, ...PROPERTIES.map(p => p.code)],
+    });
+    const firstAt = first[0]?.at ? Date.parse(String(first[0].at)) : NaN;
+    const startedAt = new Date(Number.isFinite(firstAt) ? Math.min(Date.parse(seededAt), firstAt) : Date.parse(seededAt)).toISOString();
+    const params = [cutoff, actor.id, startedAt];
 
     const { rows } = await zite.sql({
       query: `WITH ${CTES} SELECT ${DELETE_TABLES.map(s => `(SELECT COUNT(*) FROM "${s.table}" WHERE ${s.where}) AS "${s.table}"`).join(', ')}`,

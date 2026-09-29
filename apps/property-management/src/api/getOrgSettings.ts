@@ -1,15 +1,15 @@
 import { z } from 'zod';
 import { createEndpoint } from 'zitejs/backend';
-import { zite } from 'zitejs/db';
 import { assertCan, getActor } from '@project/shared/server/actor';
 import { DEFAULT_LEASE_TEMPLATE, getSettings, isAiConfigured, isStripeConfigured } from '@project/shared/server/settings';
-import { json, num, str } from '@project/shared/server/sql';
+import { json, num } from '@project/shared/server/sql';
+import { sampleDataState } from '../server/sampleData';
 
 /**
  * Everything Settings needs to edit the organization: every policy and
  * profile field, the lease template's default for "Reset", which
- * integrations this app can see, the last automation run and whether the
- * workspace still holds the demo company. Admins only.
+ * integrations this app can see, the last automation run, and whether the
+ * workspace holds the demo company or could load it. Admins only.
  */
 
 export const OrgFields = z.object({
@@ -74,14 +74,14 @@ export default createEndpoint({
     staffAppUrl: z.string().nullable(),
     integrations: z.object({ email: z.boolean(), ai: z.boolean(), stripe: z.boolean() }),
     automation: z.object({ ranAt: z.string().nullable(), summary: Summary.nullable() }),
-    demo: z.object({ seededAt: z.string().nullable(), seedStatus: z.string() }),
+    demo: z.object({ seededAt: z.string().nullable(), seedStatus: z.string(), canLoad: z.boolean(), resumable: z.boolean() }),
     defaults: z.object({ leaseTemplate: z.string() }),
   }),
   execute: async ({ context }) => {
     const actor = await getActor(context);
     assertCan(actor, 'settings.manage');
     const s = await getSettings();
-    const { rows } = await zite.sql({ query: `SELECT "seedStatus" FROM "Settings" WHERE id::text = $1`, params: [s.id] });
+    const sample = await sampleDataState(s);
     const raw = json<Record<string, unknown> | null>(s.automationSummary, null);
     const parsed = raw ? Summary.safeParse({ ...raw, errors: Array.isArray(raw.errors) ? raw.errors.map(String) : [] }) : null;
     return {
@@ -129,7 +129,7 @@ export default createEndpoint({
         ranAt: s.automationRanAt,
         summary: parsed?.success ? { ...parsed.data, chargesPosted: num(parsed.data.chargesPosted) } : null,
       },
-      demo: { seededAt: s.seededAt, seedStatus: str(rows[0]?.seedStatus) ?? '' },
+      demo: { seededAt: s.seededAt, seedStatus: sample.status.phase, canLoad: sample.canLoad && actor.role === 'Admin', resumable: sample.resumable && actor.role === 'Admin' },
       defaults: { leaseTemplate: DEFAULT_LEASE_TEMPLATE },
     };
   },

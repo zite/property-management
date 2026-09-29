@@ -2,12 +2,13 @@ import { AlertTriangle } from 'lucide-react';
 import { TextArea, TextInput } from '../form/fields';
 import { ColorField, contrastNote, CurrencyPicker, ImageUpload, LogoMark, Note, TimezonePicker } from './controls';
 import { Group, OrgSettingsForm, Row } from './form';
+import { SampleDataControl } from './SampleDataControl';
 
 const FIELDS = [
   'organizationName', 'legalName', 'websiteUrl', 'logoUrl', 'brandColor', 'phone', 'supportEmail', 'emergencyPhone', 'officeHours', 'address', 'timezone', 'currency', 'emailSignature',
 ] as const;
 
-/** Settings → Organization: who the company is, how it looks and how to reach it. */
+/** Settings → Organization: who the company is, how it looks and how to reach it. The sample data control sits at the bottom. */
 export default function OrganizationSection() {
   return (
     <OrgSettingsForm section="general" fields={FIELDS}>
@@ -95,6 +96,8 @@ export default function OrganizationSection() {
                 </div>
               </Row>
             </Group>
+
+            <SampleDataControl removeLink />
           </>
         );
       }}

@@ -14,6 +14,7 @@ import { ProgressBar } from '../primitives/bits';
 import { Note } from './controls';
 import { sk, useDemoCounts, useOrgSettings } from './data';
 import { Group, SectionError, SectionHeader, SectionSkeleton } from './form';
+import { SampleDataControl } from './SampleDataControl';
 
 const PHRASE = 'remove demo data';
 
@@ -36,7 +37,11 @@ type Counts = ClearDemoDataOutputType['counts'];
 
 const n = (v: number) => v.toLocaleString('en-US');
 
-/** Settings → Demo data: what the sample company is, and removing it — resumably, with progress. */
+/**
+ * Settings → Demo data: what the sample company added, and removing it,
+ * resumably and with progress. The nav shows this section only while the
+ * sample is loaded; loading it lives at the bottom of Settings → Organization.
+ */
 export default function DemoDataSection() {
   const ws = useWorkspace();
   const app = useAppActions();
@@ -105,14 +110,13 @@ export default function DemoDataSection() {
   }
 
   if (!data.hasDemo || data.remaining === 0 || finished) {
-    const wasSeeded = finished || org.data.demo.seedStatus === 'done';
     return (
       <>
-        <SectionHeader title="Demo data" description="The sample company set up when this app was installed." />
+        <SectionHeader title="Demo data" description="The sample company an admin can load into an empty workspace." />
         <Group>
           <Note tone="success" icon={<CircleCheck />}>
             <span className="font-medium">No demo data in this workspace.</span>{' '}
-            <span className="text-muted-foreground">{finished ? 'The sample company has been removed. Everything here from now on is yours.' : wasSeeded ? 'Everything here is your own.' : 'No sample company was added here.'}</span>
+            <span className="text-muted-foreground">{finished ? 'The sample company has been removed. Everything here from now on is yours.' : 'Everything here is your own.'}</span>
           </Note>
         </Group>
         <Group title="Getting started">
@@ -134,13 +138,14 @@ export default function DemoDataSection() {
             <ArrowRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100" />
           </Link>
         </Group>
+        <SampleDataControl />
       </>
     );
   }
 
   return (
     <>
-      <SectionHeader title="Demo data" description="When this app was installed it built a sample company, Cedar & Main Property Management, so every screen had something to show. Remove it before you add your own properties." />
+      <SectionHeader title="Demo data" description="The sample company, Cedar & Main Property Management, is loaded so every screen has something to show. Remove it before you add your own properties." />
 
       <Group title="What’s sample data" description={seededAt ? `Added ${fullDate(seededAt)}.` : undefined}>
         <div className="grid gap-x-8 px-4 py-3 sm:grid-cols-2">
@@ -160,7 +165,7 @@ export default function DemoDataSection() {
       <Group title="Remove demo data">
         <div className="flex flex-wrap items-center gap-3 px-4 py-4">
           <p className="min-w-0 flex-1 text-[14px] text-muted-foreground">
-            Permanently deletes {n(data.remaining)} sample records. This can’t be undone, and the demo can’t be added back.
+            Permanently deletes {n(data.remaining)} sample records. This can’t be undone. While the workspace is empty you can load the sample again from Settings → Organization.
           </p>
           <button type="button" onClick={() => setConfirming(true)} className="inline-flex h-9 items-center gap-1.5 rounded-md bg-destructive px-3 text-[14px] font-medium text-destructive-foreground shadow-xs hover:bg-destructive/90">
             <Trash2 className="h-3.5 w-3.5" /> Remove demo data
