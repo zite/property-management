@@ -1,5 +1,6 @@
 import { zite } from 'zitejs/db';
 import type { Role } from '../constants';
+import { isDemo } from './demoPreview';
 import { bool, iso, num, numOrNull, str } from './sql';
 
 /**
@@ -133,36 +134,38 @@ export function toSettings(r: Record<string, unknown>): OrgSettings {
   };
 }
 
+const DEFAULT_ROW = {
+  organizationName: DEFAULT_SETTINGS.organizationName,
+  currency: DEFAULT_SETTINGS.currency,
+  timezone: DEFAULT_SETTINGS.timezone,
+  brandColor: DEFAULT_SETTINGS.brandColor,
+  rentDueDay: DEFAULT_SETTINGS.rentDueDay,
+  gracePeriodDays: DEFAULT_SETTINGS.gracePeriodDays,
+  lateFeeType: DEFAULT_SETTINGS.lateFeeType,
+  lateFeeAmount: DEFAULT_SETTINGS.lateFeeAmount,
+  lateFeePercent: DEFAULT_SETTINGS.lateFeePercent,
+  chargeDaysAhead: DEFAULT_SETTINGS.chargeDaysAhead,
+  rentReminderDays: DEFAULT_SETTINGS.rentReminderDays,
+  renewalNoticeDays: DEFAULT_SETTINGS.renewalNoticeDays,
+  managementFeePercent: DEFAULT_SETTINGS.managementFeePercent,
+  applicationFee: DEFAULT_SETTINGS.applicationFee,
+  incomeMultiple: DEFAULT_SETTINGS.incomeMultiple,
+  portalHeadline: DEFAULT_SETTINGS.portalHeadline,
+  portalIntro: DEFAULT_SETTINGS.portalIntro,
+  paymentInstructions: DEFAULT_SETTINGS.paymentInstructions,
+  onlinePayments: true,
+  allowPartialPayments: true,
+  maintenanceRequests: true,
+  applicationsOpen: true,
+  defaultRole: DEFAULT_SETTINGS.defaultRole,
+};
+
 export async function getSettings(): Promise<OrgSettings> {
   const { rows } = await zite.sql({ query: `SELECT * FROM "Settings" ORDER BY created_at ASC LIMIT 1`, params: [] });
   if (rows[0]) return toSettings(rows[0]);
-  const created = await zite.settings.create({
-    record: {
-      organizationName: DEFAULT_SETTINGS.organizationName,
-      currency: DEFAULT_SETTINGS.currency,
-      timezone: DEFAULT_SETTINGS.timezone,
-      brandColor: DEFAULT_SETTINGS.brandColor,
-      rentDueDay: DEFAULT_SETTINGS.rentDueDay,
-      gracePeriodDays: DEFAULT_SETTINGS.gracePeriodDays,
-      lateFeeType: DEFAULT_SETTINGS.lateFeeType,
-      lateFeeAmount: DEFAULT_SETTINGS.lateFeeAmount,
-      lateFeePercent: DEFAULT_SETTINGS.lateFeePercent,
-      chargeDaysAhead: DEFAULT_SETTINGS.chargeDaysAhead,
-      rentReminderDays: DEFAULT_SETTINGS.rentReminderDays,
-      renewalNoticeDays: DEFAULT_SETTINGS.renewalNoticeDays,
-      managementFeePercent: DEFAULT_SETTINGS.managementFeePercent,
-      applicationFee: DEFAULT_SETTINGS.applicationFee,
-      incomeMultiple: DEFAULT_SETTINGS.incomeMultiple,
-      portalHeadline: DEFAULT_SETTINGS.portalHeadline,
-      portalIntro: DEFAULT_SETTINGS.portalIntro,
-      paymentInstructions: DEFAULT_SETTINGS.paymentInstructions,
-      onlinePayments: true,
-      allowPartialPayments: true,
-      maintenanceRequests: true,
-      applicationsOpen: true,
-      defaultRole: DEFAULT_SETTINGS.defaultRole,
-    },
-  });
+  // The demo's database is read-only and refuses the whole request on any write.
+  if (isDemo()) return toSettings({ id: '00000000-0000-0000-0000-000000000000', ...DEFAULT_ROW });
+  const created = await zite.settings.create({ record: DEFAULT_ROW });
   return toSettings(created as unknown as Record<string, unknown>);
 }
 
@@ -171,6 +174,7 @@ export async function getSettings(): Promise<OrgSettings> {
  * from one can link people into the other without anyone configuring it.
  */
 async function remember(settings: OrgSettings, field: 'portalUrl' | 'staffAppUrl') {
+  if (isDemo()) return settings;
   const url = (process.env.ZITE_APP_URL ?? '').replace(/\/+$/, '');
   if (!url || !/^https:\/\//.test(url) || url === settings[field]) return settings;
   // Editor previews run on preview hosts; only replace a known URL with a live one.

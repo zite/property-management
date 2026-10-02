@@ -2,6 +2,7 @@ import { ZiteError } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
 import { ROLES, type Role } from '../constants';
 import { can, capabilitiesFor, type Capability } from '../roles';
+import { DEMO_EMAIL, isDemo } from './demoPreview';
 import { getSettings } from './settings';
 
 /**
@@ -51,9 +52,11 @@ export async function getActor(context: { user?: UserLike }): Promise<Actor> {
     if (row.status === 'Invited') patch.status = 'Active';
     const seen = row.lastSeenAt ? Date.parse(String(row.lastSeenAt)) : 0;
     if (Date.now() - seen > SEEN_EVERY_MS) patch.lastSeenAt = new Date().toISOString();
-    if (Object.keys(patch).length) await zite.members.update({ id: String(row.id), record: patch as never }).catch(() => undefined);
+    if (Object.keys(patch).length && !isDemo(context)) await zite.members.update({ id: String(row.id), record: patch as never }).catch(() => undefined);
     return { id: String(row.id), name: String(row.name || nameFromEmail(email)), email, role: asRole(row.role), created: false };
   }
+  // The demo's database is read-only and refuses the whole request on any write, so its visitor acts as an existing member.
+  if (isDemo(context)) return demoActor(context);
 
   const { rows: profile } = await zite.sql({ query: `SELECT "name", "image" FROM "ziteUsers" WHERE LOWER("email") = $1 LIMIT 1`, params: [email] });
   const name =
@@ -74,6 +77,17 @@ export async function getActor(context: { user?: UserLike }): Promise<Actor> {
     },
   });
   return { id: created.id, name, email, role, created: true };
+}
+
+/** The workspace's first admin (else first member), so "my work" shows the sample data; synthesized when there is nobody yet. */
+async function demoActor(context: { user?: UserLike }): Promise<Actor> {
+  const { rows } = await zite.sql({
+    query: `SELECT id, "name", "email", "role" FROM "Members" WHERE COALESCE("status", '') <> 'Deactivated' ORDER BY CASE WHEN "role" = 'Admin' THEN 0 ELSE 1 END, created_at ASC LIMIT 1`,
+    params: [],
+  });
+  const m = rows[0];
+  if (m) return { id: String(m.id), name: String(m.name || nameFromEmail(String(m.email ?? ''))), email: String(m.email ?? ''), role: asRole(m.role), created: false };
+  return { id: '00000000-0000-0000-0000-000000000000', name: context.user?.firstName || 'Demo User', email: DEMO_EMAIL, role: 'Admin', created: false };
 }
 
 const REFUSAL: Partial<Record<Capability, string>> = {

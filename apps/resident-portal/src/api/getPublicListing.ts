@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { createEndpoint, ZiteError } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
+import { isDemo } from '@project/shared/server/demoPreview';
 import { getSettings } from '@project/shared/server/settings';
 import { num } from '@project/shared/server/sql';
 import {
@@ -43,7 +44,7 @@ export default createEndpoint({
     ]);
 
     // Best-effort: a view that fails to count must never fail the page.
-    if (countView) await zite.listings.update({ id: String(row.id), record: { views: num(row.views) + 1 } }).catch(() => undefined);
+    if (countView && !isDemo(context)) await zite.listings.update({ id: String(row.id), record: { views: num(row.views) + 1 } }).catch(() => undefined);
 
     return {
       listing: toListingDetail(row, settings, contact),

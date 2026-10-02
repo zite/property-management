@@ -1,6 +1,7 @@
 import type { z } from 'zod';
 import { ZiteError } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
+import { isDemo } from '@project/shared/server/demoPreview';
 import { day, num, ref, str } from '@project/shared/server/sql';
 
 /**
@@ -57,13 +58,32 @@ export function sessionEmail(context: { user?: UserLike }) {
   return context.user?.email?.trim().toLowerCase() || null;
 }
 
+/**
+ * The demo visitor's email matches nobody, so they see the sample personas: the
+ * ones the seed linked to the workspace's first admin, else the oldest tenant on
+ * an active lease and the oldest portal-enabled owner and vendor.
+ */
+const DEMO_ORDER = `ORDER BY CASE WHEN LOWER(x."email") = (SELECT LOWER(m."email") FROM "Members" m WHERE m."role" = 'Admin' AND COALESCE(m."status", '') <> 'Deactivated' ORDER BY m.created_at ASC LIMIT 1) THEN 0 ELSE 1 END, x.created_at ASC LIMIT 1`;
+const demoPersonas = () => [
+  zite.sql({
+    query: `SELECT x.id, x."name", x."phone" FROM "Tenants" x WHERE COALESCE(x."archived", false) = false AND EXISTS (SELECT 1 FROM "LeaseTenants" lt JOIN "Leases" l ON l.id::text = lt."leaseId" WHERE lt."tenantId" = x.id::text AND lt."role" IN ('Primary', 'Co-tenant') AND l."status" = 'Active') ${DEMO_ORDER}`,
+    params: [],
+  }),
+  zite.sql({ query: `SELECT x.id, x."name", x."contactName" FROM "Owners" x WHERE COALESCE(x."portalEnabled", false) = true AND COALESCE(x."status", 'Active') = 'Active' ${DEMO_ORDER}`, params: [] }),
+  zite.sql({ query: `SELECT x.id, x."name", x."contactName" FROM "Vendors" x WHERE COALESCE(x."portalEnabled", false) = true AND COALESCE(x."status", 'Active') = 'Active' ${DEMO_ORDER}`, params: [] }),
+];
+
 export async function getIdentity(context: { user?: UserLike }): Promise<PortalIdentity | null> {
   const email = sessionEmail(context);
   if (!email) return null;
   const [tenants, owners, vendors, apps] = await Promise.all([
-    zite.sql({ query: `SELECT id, "name", "phone" FROM "Tenants" WHERE LOWER("email") = $1 AND COALESCE("archived", false) = false ORDER BY created_at ASC LIMIT 1`, params: [email] }),
-    zite.sql({ query: `SELECT id, "name", "contactName" FROM "Owners" WHERE LOWER("email") = $1 AND COALESCE("portalEnabled", false) = true AND COALESCE("status", 'Active') = 'Active' ORDER BY created_at ASC LIMIT 1`, params: [email] }),
-    zite.sql({ query: `SELECT id, "name", "contactName" FROM "Vendors" WHERE LOWER("email") = $1 AND COALESCE("portalEnabled", false) = true AND COALESCE("status", 'Active') = 'Active' ORDER BY created_at ASC LIMIT 1`, params: [email] }),
+    ...(isDemo(context)
+      ? demoPersonas()
+      : [
+          zite.sql({ query: `SELECT id, "name", "phone" FROM "Tenants" WHERE LOWER("email") = $1 AND COALESCE("archived", false) = false ORDER BY created_at ASC LIMIT 1`, params: [email] }),
+          zite.sql({ query: `SELECT id, "name", "contactName" FROM "Owners" WHERE LOWER("email") = $1 AND COALESCE("portalEnabled", false) = true AND COALESCE("status", 'Active') = 'Active' ORDER BY created_at ASC LIMIT 1`, params: [email] }),
+          zite.sql({ query: `SELECT id, "name", "contactName" FROM "Vendors" WHERE LOWER("email") = $1 AND COALESCE("portalEnabled", false) = true AND COALESCE("status", 'Active') = 'Active' ORDER BY created_at ASC LIMIT 1`, params: [email] }),
+        ]),
     zite.sql({ query: `SELECT COUNT(*) AS n FROM "Applications" WHERE LOWER("portalEmail") = $1`, params: [email] }),
   ]);
   const t = tenants.rows[0];
@@ -133,7 +153,7 @@ export async function requireResident(context: { user?: UserLike }, leaseId?: st
   if (!lease) throw new ZiteError("We couldn't find that lease.", 'NOT_FOUND');
   // Marks the resident as having used the portal, at most every ten minutes per worker.
   const seen = lastSeenWrite.get(identity.tenant.id) ?? 0;
-  if (Date.now() - seen > 10 * 60 * 1000) {
+  if (Date.now() - seen > 10 * 60 * 1000 && !isDemo(context)) {
     lastSeenWrite.set(identity.tenant.id, Date.now());
     void zite.tenants.update({ id: identity.tenant.id, record: { portalSeenAt: new Date().toISOString() } }).catch(() => undefined);
   }

@@ -13,7 +13,7 @@ import { FileList } from '../../components/resident/uploads';
 import { Button, Card, Container, textareaClass } from '../../components/ui';
 import { errorMessage } from '../../lib/errors';
 import { mediumDateTime, shortDate } from '../../lib/format';
-import { qk } from '../../lib/queries';
+import { isDemoPreview, qk } from '../../lib/queries';
 import { categoryMeta, PRIORITY_WORDS, requestStatus, visitTime } from '../../lib/residentFormat';
 import { useReturnFocus } from '../../lib/residentFocus';
 import { useResidentLease } from '../../lib/residentLease';
@@ -37,7 +37,7 @@ export default function RequestPage() {
   const unread = q.data?.messages.some(m => m.unread) ?? false;
   const marked = useRef(false);
   useEffect(() => {
-    if (!unread || marked.current || !leaseId) return;
+    if (!unread || marked.current || !leaseId || isDemoPreview()) return;
     marked.current = true;
     markResidentMessagesRead({ leaseId, workOrderNumber: number })
       .then(() => {

@@ -7,7 +7,7 @@ import { EmergencyCard, LoadError, ResidentSkeleton } from '../../components/res
 import { Conversation } from '../../components/resident/Conversation';
 import { LeaseSwitcher, ResidentHeader } from '../../components/resident/ResidentHeader';
 import { Card, Container } from '../../components/ui';
-import { qk } from '../../lib/queries';
+import { isDemoPreview, qk } from '../../lib/queries';
 import { telHref } from '../../lib/residentFormat';
 import { useResidentLease } from '../../lib/residentLease';
 import { rk, useResidentMessages, type ResidentMessages } from '../../lib/residentQueries';
@@ -24,7 +24,7 @@ export default function MessagesPage() {
   const unreadIds = (q.data?.messages ?? []).filter(m => m.unread).map(m => m.id).join(',');
   const lastMarked = useRef('');
   useEffect(() => {
-    if (!unreadIds || !leaseId || lastMarked.current === unreadIds) return;
+    if (!unreadIds || !leaseId || lastMarked.current === unreadIds || isDemoPreview()) return;
     lastMarked.current = unreadIds;
     markResidentMessagesRead({ leaseId })
       .then(() => {

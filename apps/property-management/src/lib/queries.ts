@@ -49,7 +49,7 @@ export function invalidateMoney(qc: QueryClient) {
 }
 
 export function useBootstrap() {
-  return useQuery({ queryKey: qk.bootstrap, queryFn: () => bootstrap({}), staleTime: 60_000, refetchOnWindowFocus: true });
+  return useQuery({ queryKey: qk.bootstrap, queryFn: () => bootstrap({}), staleTime: 60_000, refetchOnWindowFocus: true, retry: retryUnlessNotFound });
 }
 
 /** A missing record won't appear on retry; everything else (network, 5xx) gets a couple more tries. */

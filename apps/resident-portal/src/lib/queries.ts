@@ -33,6 +33,9 @@ export const retry = (count: number, e: unknown) => {
   return count < 2;
 };
 
+/** The marketplace demo, whose read-only database refuses any write with an error toast. */
+export const isDemoPreview = () => typeof window !== 'undefined' && Boolean((window as { __ziteDemo?: unknown }).__ziteDemo);
+
 export function usePortal() {
   return useQuery({ queryKey: qk.portal, queryFn: () => getPortal({}), staleTime: 5 * 60_000, retry });
 }

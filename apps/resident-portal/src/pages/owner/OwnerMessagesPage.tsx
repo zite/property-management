@@ -8,7 +8,7 @@ import { ownerKeys, useOwnerMessages, type OwnerMessages } from '../../component
 import { AreaSkeleton, LoadError, PageHeader, Panel, telHref } from '../../components/owner/kit';
 import { Container } from '../../components/ui';
 import { errorMessage } from '../../lib/errors';
-import { qk, useMe, usePortal } from '../../lib/queries';
+import { isDemoPreview, qk, useMe, usePortal } from '../../lib/queries';
 import { useDocumentTitle } from '../../lib/useDocumentTitle';
 
 /** The owner's conversation with the office, and who looks after their properties. Opening it marks everything read. */
@@ -22,7 +22,7 @@ export default function OwnerMessagesPage() {
 
   const unread = (q.data?.messages.filter(m => m.unread).length ?? 0) + (me.data?.owner?.unreadMessages ?? 0);
   useEffect(() => {
-    if (!q.data || marked.current || unread === 0) return;
+    if (!q.data || marked.current || unread === 0 || isDemoPreview()) return;
     marked.current = true;
     markOwnerMessagesRead({})
       .then(() => {

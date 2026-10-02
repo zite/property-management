@@ -1,6 +1,7 @@
 import { ZiteError } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
 import type { AccountSubtype, AccountType } from '../constants';
+import { isDemo } from './demoPreview';
 import { bool, chunked, num, str } from './sql';
 
 /**
@@ -141,7 +142,8 @@ export async function ensureChartOfAccounts(): Promise<AccountRow[]> {
   const existing = await loadAccounts();
   const keys = new Set(existing.map(a => a.systemKey).filter(Boolean));
   const missing = DEFAULT_CHART.filter(d => !keys.has(d.systemKey));
-  if (!missing.length) return existing;
+  // The demo's database is read-only and refuses the whole request on any write.
+  if (!missing.length || isDemo()) return existing;
   await chunked(missing, async batch => {
     await zite.accounts.bulkCreate({
       records: batch.map(d => ({
